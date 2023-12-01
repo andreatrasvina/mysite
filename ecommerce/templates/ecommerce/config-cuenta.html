@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Fuentes tipograficas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="rueda-de-color.png" type="image/svg+xml">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png" />
+  <link rel="stylesheet" href="../css/config-cuenta.Css">
+  <title>LevelUp Access</title>
+</head>
+<body>
+  <header>
+    <nav>
+      
+      
+      <h1 class="title">
+        <a href="../index.html">
+          <img class = "logo" src="../assets/logo.png" alt="LevelUp Access logo">
+        </a>
+        LevelUp <span class="rojo">Access</span>
+      </h1>
+      <div class="buscar-container">
+        <i class="fas fa-search lupa" style="color: white"></i>
+        <input type="text" class="buscar-barra" placeholder="Buscar">
+      </div>
+
+      <ul class="clases-menu">
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+      </ul>
+      
+      <ul class="iconos-menu">        
+        <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
+        <li class="icono-carrito"><a href="carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+      
+      <ul class="cuenta-menu">        
+        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
+      </ul>
+
+      <button class="hamburguesa" type="button">
+        <span class="br-1"></span>
+        <span class="br-2"></span>
+        <span class="br-3"></span>
+      </button>
+    </nav>
+  </header>
+  <body>
+    <!-- Tu contenido existente aquí -->
+  <!-- Contenedor del formulario -->
+  <div class="texto-container">
+    <p>Actualiza tu Información Personal</p>
+  </div>
+  
+ 
+
+<div class="formulario-container">
+  
+  <form id="miFormulario">
+    <div class="two-inputs">
+      <div>
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div>
+        <label for="Contraseña">Contraseña:</label>
+        <input type="password" id="Contraseña" name="Contraseña" required>
+      </div>
+    </div>
+
+    <div class="two-inputs">
+      <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="text" id="fechaNacimiento" name="fechaNacimiento" class="date-input" oninput="formatFechaNacimiento(this)" placeholder="DD/MM/AAAA" required>
+    <small>Formato: DD/MM/AAAA</small>
+      </div>
+      <div>
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+    </div>
+
+    <div class="three-inputs">
+      <div>
+        <label for="region">Región:</label>
+        <select id="region" name="region">
+          <option value="americas">Américas</option>
+          <option value="europe">Europa</option>
+          <option value="asia">Asia</option>
+        </select>
+      </div>
+      <div>
+        <label for="pais">País:</label>
+        <select id="pais" name="pais">
+          <option value="usa">Estados Unidos</option>
+          <option value="Mex">Mexico</option>
+          <option value="uk">Reino Unido</option>
+          <option value="china">China</option>
+        </select>
+      </div>
+      <div>
+        <label for="idioma">Idioma:</label>
+        <select id="idioma" name="idioma">
+          <option value="espanol">Español</option>
+          <option value="english">Inglés</option>
+          <option value="chinese">Chino</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="two-inputs">
+      <div>
+        <label for="celular">Número de Celular:</label>
+        <input type="tel" id="celular" name="celular">
+      </div>
+    </div>
+
+    <div>
+      <button type="submit">Guardar Datos</button>
+    </div>
+  </form>
+</div>
+     
+  
+    <!-- Tu script existente aquí -->
+  </body>
+  <script src="js/main.js"></script>
+</body>
+</html>

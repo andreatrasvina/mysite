@@ -1,0 +1,45 @@
+/*CARRITO*/
+
+.productos-container {
+    position: relative;
+    width: 70%;
+    height: 70vh;
+    background-color: #EF3340;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.texto-carro-container {
+    position: relative;
+    top: 10vh;
+    margin: 0;
+    color: white;
+    background-color: #6D6D6D;
+    margin-bottom: 12vh;
+}
+
+.carro-texto {
+    position: relative;
+    font-size: 3vw;
+    margin: 0;
+}
+
+.juegos-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Cambiado a 100% para ocupar todo el ancho del contenedor padre */
+    background-color: aqua;
+    overflow-y: hidden; /* Agrega esta línea */
+}
+
+.juego-container {
+    position: relative;
+    width: 70%;
+    background-color: #202020;
+    height: 37vh;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Añade un margen inferior entre los juegos */
+}
+
+

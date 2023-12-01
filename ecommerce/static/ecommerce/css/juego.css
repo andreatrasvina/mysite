@@ -1,0 +1,954 @@
+@font-face {
+    font-family: 'titulo';
+    src: url("Fuente que si tiene el usuario pues jala"), url(../fonts/Rajdhani-Bold.ttf);
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    background-color: #171717;
+}
+
+
+.title{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    left: 90px;
+    color: white;
+    font-family: 'titulo';
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    position: relative;
+    /* background-color: #404044; */
+    width: 60px;
+    height: 50px;
+    text-decoration: none;
+}
+
+.buscar-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    left: 330px;
+    /* top: 1.8vh; */
+}
+
+.rojo{
+    color: #EF3340;
+}
+
+nav{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    /* height: 70px; */
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #121212;
+    z-index: 100;
+}
+
+.hamburguesa{
+    display: none;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.hamburguesa span{
+    display: block;
+    background-color: #6d6d6d;
+    height: 2px;
+    width: 28px;
+    margin: 8px auto;
+    border-radius: 2px;
+}
+ 
+.lupa {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Ajusta el valor según sea necesario */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1; /* Para que la lupa esté por encima del campo de entrada */
+}
+ 
+.buscar-barra {
+    display: block;
+    position: relative;
+    background-color: #2c2c2c;
+    border-radius: 12px;
+    color: white;
+    padding-left: 30px; /* Ajusta el valor según sea necesario */
+    width: 300px; /* Ajusta el valor según sea necesario */
+    height: 35px;
+    border: none;
+}
+
+
+/* .logo, .buscar-container {
+    position: fixed;
+    top: 10px; /* Ajusta la distancia superior deseada
+    left: 10px; /* Ajusta la distancia izquierda deseada
+    z-index: 2; /* Ajusta la capa z-index según sea necesario
+} */
+ 
+/* TIENDA, CATEGORIAS, OFERTAS */
+.clases-menu {
+    display: flex;
+    position: fixed;
+    left: 620px; /* Ajusta la posición izquierda según sea necesario */
+    width: 300px; /* Ajusta el ancho deseado */
+}
+
+/* Cuando el menú está activado, muestra el menú moviéndolo hacia la posición deseada */
+.clases-menu.activado {
+    transform: translateX(0);
+    left: 0;
+    position: relative;
+}
+
+.clases-menu li{
+    padding: 0 20px;
+    list-style-type: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.clases-menu li a{
+    text-decoration: none;
+    color: #6d6d6d;
+    font-size: 1.4rem;
+}
+
+.clases-menu li:hover{
+    background-color: #404044;
+    border-radius: 5px;
+}
+/* TIENDA, CATEGORIAS, OFERTAS */
+
+.iconos-menu{
+    display: flex;
+    padding: 0;
+    border-right: 2px solid #6D6D6D; /* Color y estilo del borde derecho */
+    padding-right: 10px; /* Espacio entre la línea y el contenido */
+    margin-right: 10px; /* Espacio entre las listas */
+    transform: translateX(-80px);
+}
+
+.iconos-menu.activado {
+    transform: translateX(0);
+    left: 0;
+    position: relative;
+}
+
+.iconos-menu li{
+    padding: 0 20px;
+    list-style-type: none;
+    transition: 0.3s;
+
+}
+
+.iconos-menu li a:hover{
+    transition: 0.3s;
+    color: #EF3340;
+    /* border-radius: 5px; */
+}
+
+.iconos-menu li a{
+    transition: 0.3s;
+    text-decoration: none;
+    color: #6d6d6d;
+    font-size: 1.8rem;
+}
+
+.cuenta-menu{
+    display: flex;
+    padding: 0;
+    transform: translateX(-80px);
+}
+
+.cuenta-menu.activado {
+    transform: translateX(0);
+    left: 0;
+    position: relative;
+}
+
+.cuenta-menu li{
+    padding: 0 20px;
+    list-style-type: none;
+    transition: 0.3s;
+}
+
+.cuenta-menu li a{
+    text-decoration: none;
+    color: #6d6d6d;
+    font-size: 1.8rem;
+}
+
+.texto-container{
+    position: absolute;
+    text-align: center;
+    font-family: 'titulo';
+    font-weight: bold;
+    font-size: 4rem;
+    width: 100%;
+    color: aliceblue;
+    top: 25vh;
+    /* background-color: #EF3340; */
+}
+
+.texto-container a:hover{
+    /* Lo haremos mas suave */
+    background-color: transparent; /* Cambia el color de fondo predeterminado */
+    transition: background-color 0.3s ease; /* Agrega una transición para background-color */
+    background-color: #202020;
+}
+
+.empezar-boton{
+    text-decoration: none;
+    /* display: block; */
+    font-size: 35px;
+    width: 12vw;
+    background-color: #EF3340;
+    color: white;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+
+
+
+/*Producto*/
+
+.producto-container {
+    position: relative;
+    display: flex;
+    width: 77%;
+    height: 60vh;
+    /* background-color: #EF3340; */
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.texto-juego-container {
+    position: relative;
+    top: 10vh;
+    color: white;
+    /* background-color: #6D6D6D; */
+    margin-bottom: 12vh; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 77%;   
+}
+
+.texto-juego {
+    position: relative;
+    font-size: 3vw;
+    font-weight: 500;
+    margin: 0;
+    /* font-family: 'titulo'; */
+}
+
+.juego-container {
+    width: 70%; /* Cambiado a 100% para ocupar todo el ancho del contenedor padre */
+    /* background-color: aqua; */
+    /* overflow-y: scroll; Agrega esta línea */
+    /* background-color: #036EEC; */
+}
+
+.video-container {
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    width: 90%;
+    /* background-color: #202020; */
+    height: 60vh;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Añade un margen inferior entre los juegos */
+}
+
+.video-juego{
+    width: 110%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* sidebar de los precios, es la barra de a un lado */
+
+.sidebar-container{
+    position: relative;
+    right: 1.8vw;
+    display: flex;
+    width: 25%;
+    /* background-color: #202020; */
+    /* height: 50vh; */
+    flex-direction: column;
+}
+
+.titulo-juego-side{
+    background-color: #036EEC;
+    height: 35%;
+    border-radius: 10px;
+}
+
+.titulo-juego-side img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.total-datos{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aquamarine; */
+    width: 100%;
+    color: white;
+    /* height: 30px; */
+}
+
+.total-datos h1{
+    font-size: 1.3vw;
+}
+
+.imp {
+    display: flex;
+    position: relative;
+    font-weight: 600;
+    color: #6D6D6D;
+    text-align: right;
+}
+
+.imp span {
+    margin-left: 4vh; /* Agrega un margen derecho para separar el texto de otros elementos si es necesario */
+}
+
+
+.raya{
+    width: 100%;
+    border: 1px solid #6D6D6D;
+}
+
+.finalizar-compra{
+    position: relative;
+    display: block;
+    top: 2vh;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: #036EEC;
+    padding: 15px 0;
+    border-radius: 10px;
+    font-size: 0.8vw;
+}
+
+/*FIN CARRITO*/
+
+
+/* Footer */
+
+.foot{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    /* bottom: 0; */
+
+    width: 100%;
+    /* margin-top: -104px; */
+    height: 16vh;
+    background-color: #202020;
+    z-index: 10;
+    color: #6D6D6D;
+}
+
+.faq-title{
+    display: flex;
+    position: relative;
+    margin: 0;
+}
+
+.faq {
+    font-size: 30px;
+    display: flex;
+    position: relative;
+    /* background-color: #EF3340; */
+    top: 2vh;
+    left: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.redes-sociales {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #EF3340;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 3vh;
+}
+
+.ayuda{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 100;
+    right: 4vw;
+    bottom: 5vh;
+}
+
+.icon {
+    font-size: 30px;
+    color: #121212;
+}
+
+.ayuda img{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+
+
+
+
+/*AQUI ESTAN DETALLES DEL FOOTER*/
+
+.oculto {
+    display: none;
+}
+
+/* Ajusta esto según tus necesidades */
+.activado {
+    /* Estilos para cuando el menú está activado */
+    overflow: hidden; /* Deshabilita el desplazamiento en el contenedor activado */
+}
+
+.activado{
+    /* Estilos para cuando el menú está activado */
+    overflow: hidden; /* Deshabilita el desplazamiento en el contenedor activado */
+}
+
+.activado, .foot {
+    /* Estilos para cuando el menú está activado */
+    height: 20vh;
+}
+  
+
+/* RESPONSIVE */
+
+@media (max-width:1280px){
+    body{
+        overflow: hidden;
+    }
+
+    /* .logo{
+        position: relative;
+        left: 48px;
+        top: 15px;
+        /* padding-left: 25px; */
+        /* align-items: center;
+    } */
+
+    .title{
+        display: flex;
+        position: relative;
+        margin: 0;
+        left: 110px;
+        /* top: -30px; */
+        /* bottom: 45px; */
+        align-items: center;
+        margin-bottom: 10px;
+        /* background-color: pink; */
+    }
+
+    .hamburguesa{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transition: 0.2s 0.1s;
+    }
+
+    .hamburguesa:hover{
+        transform: rotate(360deg);
+    }
+
+    nav{
+        flex-direction:column ;
+        align-items: flex-start;
+        /* Padding 0 25px; */
+    }
+
+    .buscar-container{
+        display: none;
+    }
+
+    .clases-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        height: 20vh;
+        padding: 0;
+        width: 100%;
+        /* background-color: pink; */
+        display: none;
+        opacity: 0;
+    }
+
+    .iconos-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        border: none;
+        align-items: center;
+        width: 100%;
+        height: 14vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .cuenta-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .clases-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .icono-corazon a::before {
+        content: "Wishlist"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .icono-carrito a::before {
+        content: "Carrito de compra"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .iconos-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .cuenta-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:1024px){
+    body{
+        overflow: hidden;
+    }
+
+    .title{
+        display: flex;
+        position: relative;
+        margin: 0;
+        left: 15px;
+        /* top: -30px; */
+        /* bottom: 45px; */
+        align-items: center;
+        margin-bottom: 10px;
+        /* background-color: pink; */
+    }
+
+    .hamburguesa{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transition: 0.2s 0.1s;
+    }
+
+    .hamburguesa:hover{
+        transform: rotate(360deg);
+    }
+
+    nav{
+        flex-direction:column ;
+        align-items: flex-start;
+        /* Padding 0 25px; */
+    }
+
+    .buscar-container{
+        display: none;
+    }
+
+    .clases-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        height: 18vh;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /* background-color: pink; */
+        display: none;
+        opacity: 0;
+    }
+
+    .iconos-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        border: none;
+        align-items: center;
+        width: 100%;
+        height: 12vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .cuenta-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .clases-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .icono-corazon a::before {
+        content: "Wishlist"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .icono-carrito a::before {
+        content: "Carrito de compra"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .iconos-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .cuenta-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+}
+
+/* IPHONE 13 PRO MAX */
+
+@media (max-width:428px){
+    body{
+        overflow: scroll;
+        /* overflow: hidden; */
+    }
+
+    .texto-container{
+        position: absolute;
+        text-align: center;
+        font-family: 'titulo';
+        font-weight: bold;
+        font-size: 3.5rem;
+        width: 100%;
+        color: aliceblue;
+        top: 20vh;
+        /* background-color: #EF3340; */
+        z-index: 5;
+    }
+   
+    .texto-container a:hover{
+        /* Lo haremos mas suave */
+        background-color: transparent; /* Cambia el color de fondo predeterminado */
+        transition: background-color 0.3s ease; /* Agrega una transición para background-color */
+        background-color: #202020;
+    }
+
+    .title{
+        display: flex;
+        position: relative;
+        margin: 0;
+        left: 15px;
+        /* top: -30px; */
+        /* bottom: 45px; */
+        align-items: center;
+        margin-bottom: 10px;
+        /* background-color: pink; */
+    }
+
+    .hamburguesa{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transition: 0.2s 0.1s;
+    }
+
+    .hamburguesa:hover{
+        transform: rotate(360deg);
+    }
+
+    nav{
+        position: relative;
+        flex-direction:column ;
+        align-items: flex-start;
+        z-index: 10;
+        /* Padding 0 25px; */
+    }
+
+    .slides{
+        /* width: 100%; */
+        height:100vh;
+        margin: 0;
+        /* overflow: scroll; */
+        position: relative;
+        z-index: 1;
+    }
+
+    .slide{
+        position: absolute;
+        height: 100%;
+        opacity: 0;
+        inset: 0;
+        margin: 0;
+        animation: slide-show 12s infinite;
+    }
+   
+    .slide-2{
+        animation-delay: 2s;
+    }
+    .slide-3{
+        animation-delay: 4s;
+    }
+   
+    .slide-4{
+        animation-delay: 6s;
+    }
+   
+    .slide-5{
+        animation-delay: 8s;
+    }
+   
+    .slide img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .content-container {
+        overflow-y: scroll; /* Habilita el scroll vertical para el contenido */
+        max-height: 90vh; /* Limita la altura del contenedor de contenido al 80% de la altura de la pantalla */
+    }
+
+    .buscar-container{
+        display: none;
+    }
+
+    .clases-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        height: 18vh;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /* background-color: pink; */
+        display: none;
+        opacity: 0;
+    }
+
+    .iconos-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        border: none;
+        align-items: center;
+        width: 100%;
+        height: 12vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .cuenta-menu{
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: center;
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+        display: none;
+        /* background-color: #EF3340; */
+        opacity: 0;
+    }
+
+    .clases-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .icono-corazon a::before {
+        content: "Wishlist"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .icono-carrito a::before {
+        content: "Carrito de compra"; /* Agrega el texto que desees */
+        font-size: 1.4rem;
+        margin-right: 8px; /* Espacio entre el icono y el texto */
+    }
+
+    .iconos-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+
+    .cuenta-menu li{
+        width: 90%;
+        background-color: #202020;
+        border-radius: 10px;
+        height: 3.5em;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Animaciones */
+
+@keyframes mostrarMenu {
+    from{opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* ACTIVACION DEL SANDWICH */
+.clases-menu.activado{
+    display: flex;
+    animation: mostrarMenu 350ms ease-in-out
+    both;
+}
+
+.iconos-menu.activado{
+    display: flex;
+    animation: mostrarMenu 350ms ease-in-out
+    both;
+}
+
+.cuenta-menu.activado{
+    display: flex;
+    animation: mostrarMenu 350ms ease-in-out
+    both;
+}
+
+.br-1.animado{
+    transform: rotate(-45deg) translate(-10px, 4px);
+}
+
+.br-2.animado{
+    opacity: 0;
+}
+
+.br-3.animado{
+    transform: rotate(45deg) translate(-10px, -4px);
+}
+
+/*ESTO ES EL FONDO PARA EL SLIDER*/
+.slides::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.60); /* Cambia la opacidad aquí según tus preferencias */
+    z-index: 1; /* Asegura que la capa esté por encima de las imágenes */
+}
