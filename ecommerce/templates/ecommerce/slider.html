@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/slider.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ecommerce/css/slider.css' %}">
     <title>Document</title>
 </head>
 <body>
     <div class="slider">
         <div class="slider--inner img">
-          <img src="../assets/slider-1.png" alt="">
-          <img src="../assets/slider-2.png" alt="">
-          <img src="../assets/slider-3.jpeg" alt="">
-          <img src="../assets/slider-4.jpeg" alt="">
+          <img src="{% static 'ecommerce/assets/slider-1.png' %}" alt="">
+          <img src="{% static 'ecommerce/assets/slider-2.png' %}" alt="">
+          <img src="{% static 'ecommerce/assets/slider-3.jpeg' %}" alt="">
+          <img src="{% static 'ecommerce/assets/slider-4.jpeg' %}" alt="">
         </div>
       </div>
 
-      <script src="../js/slider_tienda.js"></script>
+      <script src="{% static 'ecommerce/js/slider_tienda.js' %}"></script>
 </body>
 </html>

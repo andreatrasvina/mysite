@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  {% load static %}
   <!-- Fuentes tipograficas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
-  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png" />
-  <link rel="stylesheet" href="../css/tienda.css">
+  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'ecommerce/css/tienda.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -24,8 +25,8 @@
       
       
       <h1 class="title">
-        <a href="../index.html">
-          <img class = "logo" src="../assets/logo.png" alt="LevelUp Access logo">
+        <a href="{%url 'index' %}">
+          <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
         Tienda
       </h1>
@@ -35,18 +36,18 @@
       </div>
 
       <ul class="clases-menu">
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="categorias.html">Categorías</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="{%url 'tienda' %}">Tienda</a></li>
+        <li><a href="{%url 'categorias' %}">Categorías</a></li>
+        <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
       
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
-        <li class="icono-carrito"><a href="carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
       
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
       </ul>
 
@@ -63,9 +64,9 @@
   <div class="container">
     <div class="left-container">
       <ul class="iconos-tienda-caja">
-          <li class=""><a href="#"><img src="../assets/etiqueta-de-precio (1).png" alt="Icono 1"> Tienda</a></li>
-          <li class=""><a href="#"><img src="../assets/menu (3).png" alt="Icono 2"> Descargas</a></li>
-          <li class=""><a href="#"><img src="../assets/ventana-de-chat.png" alt="Icono 3"> Ayuda</a></li>
+          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/etiqueta-de-precio (1).png' %}" alt="Icono 1"> Tienda</a></li>
+          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a></li>
+          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/ventana-de-chat.png' %}" alt="Icono 3"> Ayuda</a></li>
       </ul>
   </div>
   
@@ -73,10 +74,10 @@
     <div class="center-container">
       <div class="slider">
         <div class="slider--inner">
-          <img src="../assets/fondo-acceder.jpg" alt="">
-          <img src="../assets/banner.png" alt="">
-          <img src="../assets/zomboid.jpg" alt="">
-          <img src="../assets/mine-banner.jpg" alt="">
+          <img src="{% static 'ecommerce/assets/fondo-acceder.jpg' %}" alt="">
+          <img src="{% static 'ecommerce/assets/banner.png' %}" alt="">
+          <img src="{% static 'ecommerce/assets/zomboid.jpg' %}" alt="">
+          <img src="{% static 'ecommerce/assets/mine-banner.jpg' %}" alt="">
         </div>
       </div>
     </div>
@@ -84,19 +85,19 @@
     <div class="right-container">
       <div class="juegos">
         <div class="portadas">
-          <img src="../assets/r6-cover.png" alt="">
+          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
           <h2><a href="">Rainbow Six</a></h2>
         </div>
         <div class="portadas">
-          <img src="../assets/fifa-cover.jpg" alt="">
+          <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
           <h2><a href="">Fifa 15</a></h2>
         </div>
         <div class="portadas">
-          <img src="../assets/cuphead-cover.jpg" alt="">
+          <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
           <h2><a href="juego.html">Cuphead</a></h2>
         </div>
         <div class="portadas">
-          <img src="../assets/zomboid-cover.jpg" alt="">
+          <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
           <h2><a href="">Project Zomboid</a></h2>
         </div>
       </div>
@@ -139,13 +140,13 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="../assets/paleta.png" alt="Icono de ayuda">
+        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
       </a>
     </div>
   
   </div>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/slider_tienda.js"></script>
+  <script src="{% static 'ecommerce/js/main.js' %}"></script>
+  <script src="{% static 'ecommerce/js/slider_tienda.js' %}"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  {% load static %}
   <!-- Fuentes tipograficas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
-  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png" />
-  <link rel="stylesheet" href="../css/iniciar-sesion.css">
+  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'ecommerce/css/iniciar-sesion.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -24,8 +25,8 @@
      
      
       <h1 class="title">
-        <a href="../index.html">
-          <img class = "logo" src="../assets/logo.png" alt="LevelUp Access logo">
+        <a href="{%url 'index' %}">
+          <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
         Iniciar Sesión
       </h1>
@@ -35,19 +36,19 @@
       </div>
 
       <ul class="clases-menu">
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="categorias.html">Categorías</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="{%url 'tienda' %}">Tienda</a></li>
+        <li><a href="{%url 'categorias' %}">Categorías</a></li>
+        <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
      
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
-        <li class="icono-carrito"><a href="carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
         <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
       </ul>
 
       <button class="hamburguesa" type="button">
@@ -65,7 +66,7 @@
   <form action="#">
     <div class="container-form">
         <div class="logo-form">
-            <img src="../assets/logo.png" alt="">
+            <img src="{% static 'ecommerce/assets/logo.png' %}" alt="">
         </div>
         <div class="texto-iniciar">
             <h2>Inicia Sesión en tu cuenta de LevelUp Access</h2>
@@ -74,17 +75,17 @@
             <input type = "text" class="correo" placeholder="Dirección de correo electrónico">
             <input type="password" class="password" placeholder="Contraseña" id="passwordInput">
             <span class="toggle-password" onclick="togglePassword()">
-               <img src="../assets/visible.png" alt="Mostrar contraseña" id="eyeIcon">
+               <img src="{% static 'ecommerce/assets/visible.png' %}" alt="Mostrar contraseña" id="eyeIcon">
             </span>
         </div>
         <div class="olvidar">
             <a href="#" class="">¿Olvidaste tu contraseña?</a>
         </div>
         <div class="btn-sesion">
-            <a href="../index.html" class="">INICIAR SESIÓN</a>
+            <a href="{%url 'index' %}" class="">INICIAR SESIÓN</a>
         </div>
         <div class="crear-cuenta">
-            <a href="crear-cuenta.html" class="">¿Aún no tienes cuenta? Crea una!</a>
+            <a href="{%url 'crear-cuenta' %}" class="">¿Aún no tienes cuenta? Crea una!</a>
         </div>
     </div>
   </form>
@@ -120,15 +121,15 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="../assets/paleta.png" alt="Icono de ayuda">
+        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
       </a>
     </div>
  
   </div>
 
 
-  <script src="../js/main.js"></script>
-  <script src="../js/ver_password.js"></script>
+  <script src="{% static 'ecommerce/js/main.js' %}"></script>
+  <script src="{% static 'ecommerce/js/ver_password.js' %}"></script>
 </body>
 </html>
  

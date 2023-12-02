@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Fuentes tipograficas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   
   {% load static %}
 
-  <link rel="icon" href="{% static 'assets/rueda-de-color.png' %}" type="image/svg+xml">
-  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png" />
+  <!-- Fuentes tipograficas -->
+  <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+  <link rel="preconnect" href="{% static 'https://fonts.gstatic.com'%}" crossorigin>
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  
+
+  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <link rel="shortcut icon" href="{% static 'ecommerce/assets/logo.png' %}" type="image/x-icon" >
   <link rel="stylesheet" href="{% static 'ecommerce/css/carrito.css' %}">
   <title>LevelUp Access</title>
 </head>
@@ -37,9 +38,9 @@
       </div>
 
       <ul class="clases-menu">
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="categorias.html">Categorías</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="{%url 'tienda' %}">Tienda</a></li>
+        <li><a href="{%url 'categorias' %}">Categorías</a></li>
+        <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
      
       <ul class="iconos-menu">        
@@ -48,7 +49,7 @@
       </ul>
      
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
       </ul>
 
@@ -72,10 +73,10 @@
       <div class="juego-container">
 
         <div class="portada-videojuego">
-          <img src="../assets/r6-cover.png" alt="portada videojuego" class="portada-img">
+          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
 
           <div class="logo-windows">
-            <img src="../assets/silueta-del-logotipo-de-windows (1).png" alt="Icono de windows">
+            <img src="{% static 'ecommerce/assets/silueta-del-logotipo-de-windows (1).png' %}" alt="Icono de windows">
           </div>
         </div>
 
@@ -91,7 +92,7 @@
 
           <div class="clasificacion">
             <div class="imagen">
-              <img src="../assets/download.png" alt="">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
             </div>
 
             <div class="textos-container">
@@ -103,11 +104,11 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
               </div>
 
             </div>
@@ -119,10 +120,10 @@
       <div class="juego-container">
 
         <div class="portada-videojuego">
-          <img src="../assets/r6-cover.png" alt="portada videojuego" class="portada-img">
+          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
 
           <div class="logo-windows">
-            <img src="../assets/silueta-del-logotipo-de-windows (1).png" alt="Icono de windows">
+            <img src="{% static 'ecommerce/assets/silueta-del-logotipo-de-windows (1).png' %}" alt="Icono de windows">
           </div>
         </div>
 
@@ -138,7 +139,7 @@
 
           <div class="clasificacion">
             <div class="imagen">
-              <img src="../assets/download.png" alt="">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
             </div>
 
             <div class="textos-container">
@@ -150,11 +151,11 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
+                <img src="{% static 'ecommerce../assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce../assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce../assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce../assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce../assets/estrella (3).png' %}" alt="">
               </div>
 
             </div>
@@ -186,7 +187,7 @@
 
           <div class="clasificacion">
             <div class="imagen">
-              <img src="../assets/download.png" alt="">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
             </div>
 
             <div class="textos-container">
@@ -198,11 +199,11 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
-                <img src="../assets/estrella (3).png" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella (3).png' %}" alt="">
               </div>
 
             </div>
@@ -273,7 +274,7 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="../assets/paleta.png" alt="Icono de ayuda">
+        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
       </a>
     </div>
 
@@ -281,8 +282,8 @@
 
   </div>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/ver_password.js"></script>
+  <script src="{% static 'ecommerce/js/main.js' %}"></script>
+  <script src="{% static 'ecommerce/js/ver_password.js' %}"></script>
 </body>
 </html>
  

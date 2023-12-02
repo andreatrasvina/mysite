@@ -3,9 +3,25 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 # Create your views here.
+
 def get_carrito(request):
     context={}
     template_name = 'ecommerce/carrito.html'
+    return render(request, template_name, context)
+
+def get_categorias(request):
+    context={}
+    template_name = 'ecommerce/categorias.html'
+    return render(request, template_name, context)
+
+def get_configCuenta(request):
+    context={}
+    template_name = 'ecommerce/config-cuenta.html'
+    return render(request, template_name, context)
+
+def get_crearCuenta(request):
+    context={}
+    template_name = 'ecommerce/crear-cuenta.html'
     return render(request, template_name, context)
 
 def get_index(request):
@@ -13,27 +29,32 @@ def get_index(request):
     template_name = 'ecommerce/index.html'
     return render(request, template_name, context)
 
-
-class Categorias(TemplateView):
-    template_name = 'ecommerce/categorias.html'
-    
-class ConfigCuenta(TemplateView):
-    template_name = 'ecommerce/config-cuenta.html'
-    
-class CrearCuenta(TemplateView):
-    template_name = 'ecommerce/crear-cuenta.html'
-    
-class IniciarSesion(TemplateView):
+def get_iniciarSesion(request):
+    context={}
     template_name = 'ecommerce/iniciar-sesion.html'
-    
-class Juego(TemplateView):
+    return render(request, template_name, context)
+
+def get_juego(request):
+    context={}
     template_name = 'ecommerce/juego.html'
-    
-class Ofertas(TemplateView):
+    return render(request, template_name, context)
+
+def get_login(request):
+    context={}
+    template_name = 'ecommerce/login.html'
+    return render(request, template_name, context)
+
+def get_ofertas(request):
+    context={}
     template_name = 'ecommerce/ofertas.html'
-    
-class Slider(TemplateView):
+    return render(request, template_name, context)
+
+def get_slider(request):
+    context={}
     template_name = 'ecommerce/slider.html'
-    
-class Tienda(TemplateView):
+    return render(request, template_name, context)
+
+def get_tienda(request):
+    context={}
     template_name = 'ecommerce/tienda.html'
+    return render(request, template_name, context)

@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  {% load static %}
   <!-- Fuentes tipograficas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+  <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
 
-  <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
-  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo.png" />
-  <link rel="stylesheet" href="../css/categorias.css">
+  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'ecommerce/css/categorias.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -24,8 +25,8 @@
      
      
       <h1 class="title">
-        <a href="../index.html">
-          <img class = "logo" src="../assets/logo.png" alt="LevelUp Access logo">
+        <a href="{%url 'index' %}">
+          <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
         Categorías
       </h1>
@@ -35,18 +36,18 @@
       </div>
 
       <ul class="clases-menu">
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="categorias.html">Categorías</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="{%url 'tienda' %}">Tienda</a></li>
+        <li><a href="{%url 'categorias' %}'">Categorías</a></li>
+        <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
      
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
-        <li class="icono-carrito"><a href="carrito.html"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
       </ul>
 
@@ -66,19 +67,19 @@
 
     <div class="cuadrados">
       <div class="carreras-container">
-        <img src="../assets/monoplaza.png" alt="" class="mono">
+        <img src="{% static 'ecommerce/assets/monoplaza.png' %}" alt="" class="mono">
         <h3 class="categoria-text">Carreras</h3>
       </div>
       <div class="carreras-container">
-        <img src="../assets/categoria-rainbow.png" alt="">
+        <img src="{% static 'ecommerce/assets/categoria-rainbow.png' %}" alt="">
         <h3 class="categoria-text">Shooters</h3>
       </div>
       <div class="carreras-container">
-        <img src="../assets/sims.jpeg" alt="">
+        <img src="{% static 'ecommerce/assets/sims.jpeg' %}" alt="">
         <h3 class="categoria-text">Casuales</h3>
       </div>
       <div class="carreras-container">
-        <img src="../assets/fifapro.jpg" alt="">
+        <img src="{% static 'ecommerce/assets/fifapro.jpg' %}" alt="">
         <h3 class="categoria-text">Deportes</h3>
       </div>
     </div>
@@ -94,7 +95,7 @@
       </div>
       <div class="primera-fila-container">
           <div class="portada-1">
-              <img src="../assets/r6-cover.png" alt="">
+              <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
 
               <div class="categoria-porcentaje-container">
                 <h3 class="categoria-juego">PLATAFORMAS Y DISPAROS</h3>
@@ -106,8 +107,8 @@
               </div>
           </div>
           <div class="portada-1">
-            <a href="juego.html">
-              <img src="../assets/cuphead-cover.jpg" alt="">
+            <a href="{%url 'juego' %}">
+              <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
             </a>
 
               <div class="categoria-porcentaje-container">
@@ -122,7 +123,7 @@
           </div>
              
           <div class="portada-1">
-              <img src="../assets/jedi-cover.jpg" alt="">
+              <img src="{% static 'ecommerce/assets/jedi-cover.jpg' %}" alt="">
               <div class="categoria-porcentaje-container">
                 <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
                 <h3 class="categoria-porciento">-54%</h3>
@@ -133,7 +134,7 @@
               </div>
           </div>
           <div class="portada-1">
-              <img src="../assets/battle-cover.jpg" alt="">
+              <img src="{% static 'ecommerce/assets/battle-cover.jpg' %}" alt="">
 
               <div class="categoria-porcentaje-container">
                 <h3 class="categoria-juego">PLATAFORMAS Y DISPAROS</h3>
@@ -148,7 +149,7 @@
 
       <div class="primera-fila-container">
         <div class="portada-1">
-            <img src="../assets/spider.png" alt="">
+            <img src="{% static 'ecommerce/assets/spider.png' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
@@ -161,7 +162,7 @@
 
         </div>
         <div class="portada-1">
-            <img src="../assets/reded-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/reded-cover.jpg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
@@ -175,7 +176,7 @@
         </div>
            
         <div class="portada-1">
-            <img src="../assets/fifa-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">DEPORTES</h3>
@@ -188,7 +189,7 @@
 
         </div>
         <div class="portada-1">
-            <img src="../assets/watch-dogs-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/watch-dogs-cover.jpg' %}" alt="">
 
 
             <div class="categoria-porcentaje-container">
@@ -206,7 +207,7 @@
     <div class="primera-fila-container">
 
         <div class="portada-1">
-            <img src="../assets/assasins-cover.jpeg" alt="">
+            <img src="{% static 'ecommerce/assets/assasins-cover.jpeg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
@@ -219,7 +220,7 @@
 
         </div>
         <div class="portada-1">
-            <img src="../assets/minecraft-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/minecraft-cover.jpg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
@@ -232,7 +233,7 @@
         </div>
            
         <div class="portada-1">
-            <img src="../assets/gears-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/gears-cover.jpg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">PLATAFORMAS Y DISPAROS</h3>
@@ -244,7 +245,7 @@
             </div>
         </div>
         <div class="portada-1">
-            <img src="../assets/zomboid-cover.jpg" alt="">
+            <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
 
             <div class="categoria-porcentaje-container">
               <h3 class="categoria-juego">ACCIÓN Y AVENTURA</h3>
@@ -288,14 +289,14 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="../assets/paleta.png" alt="Icono de ayuda">
+        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
       </a>
     </div>
  
   </div>
 
 
-  <script src="../js/main.js"></script>
+  <script src="{% static 'ecommerce/js/main.js' %}"></script>
 </body>
 </html>
  
