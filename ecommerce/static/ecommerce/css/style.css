@@ -63,6 +63,7 @@ nav{
     align-items: center;
     min-height: 8vh;
     background-color: #121212;
+    z-index: 1000;
 }
 
 .hamburguesa{
@@ -868,6 +869,6 @@ nav{
 }
   
   /* Asegúrate de que el desplazamiento sea visible cuando el menú no esté activado
-  :not(.activado) {
+:not(.activado) {
     overflow: visible;
 } */

@@ -64,6 +64,7 @@ nav{
     align-items: center;
     min-height: 8vh;
     background-color: #121212;
+    z-index: 1000;
 }
 
 .hamburguesa{
@@ -822,6 +823,7 @@ nav{
     /*background-color: aqua; */
     /* padding-top: 130px; */
     /* marg */
+    /* z-index: -1; */
 }
 
 .portada-1 img{
@@ -829,6 +831,7 @@ nav{
     height: auto;
     border-radius: 10px;
     margin: 12px;
+    /* z-index: -1; */
 }
 
 .segunda-fila-container{
@@ -845,6 +848,7 @@ nav{
     border-radius: 10px;
     margin: 12px;
     margin-bottom: 0px;
+    /* z-index: -1; */
 }
 
 /*PRECIO DE LOS JUEGOS*/
