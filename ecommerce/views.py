@@ -63,3 +63,8 @@ def get_categoria(request):
     context={}
     template_name = 'ecommerce/categoria.html'
     return render(request, template_name, context)
+
+def get_resul(request):
+    context={}
+    template_name = 'ecommerce/resul.html'
+    return render(request, template_name, context)

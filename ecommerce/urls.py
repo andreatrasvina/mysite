@@ -17,5 +17,6 @@ urlpatterns = [
     path('slider/', views.get_slider, name='slider'),
     path('tienda/', views.get_tienda, name='tienda'),
     path('categoria/', views.get_categoria, name='categoria'),
+    path('resul/', views.get_resul, name='resul'),
     
 ]
