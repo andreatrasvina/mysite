@@ -15,7 +15,7 @@ html{
 body{
     margin: 0;
     line-height: 1.6;
-    font-family: 'Raleway', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     background-color: #171717;
 }
@@ -188,6 +188,8 @@ nav{
 .cuenta-menu{
     display: flex;
     padding: 0;
+    padding-right: 10px; /* Espacio entre la línea y el contenido */
+    margin-right: 10px; /* Espacio entre las listas */
     transform: translateX(-80px);
 }
 
@@ -203,7 +205,14 @@ nav{
     transition: 0.3s;
 }
 
+.cuenta-menu li a:hover{
+    transition: 0.3s;
+    color: #EF3340;
+    /* border-radius: 5px; */
+}
+
 .cuenta-menu li a{
+    transition: 0.3s;
     text-decoration: none;
     color: #6d6d6d;
     font-size: 1.8rem;
@@ -402,6 +411,25 @@ nav{
     margin-left: 1vw;
 }
 
+.botones-categoria{
+    position: relative;
+    top: 5vh;
+    margin: 0;
+    right: 5vw;
+    /* display: inline */
+}
+
+.boton-carrito{
+    /* position: relative; */
+    font-size: 0.6vw;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #D6D6D6;
+    background: #202020;
+    padding: 10px 14px 10px 14px;
+}
+
 .texto-clasificacion{
     font-size: 1vw;
     font-weight: 500;
@@ -411,11 +439,15 @@ nav{
 .texto-clasifi{
     position: relative;
     color: #6D6D6D;
-    font-family: Raleway;
     font-size: 14px;
     font-style: normal;
     line-height: normal;
     bottom: 14px;
+    /* background-color: #036EEC; */
+}
+
+.texto-clasifi h3{
+    font-family: 'Raleway', sans-serif;
 }
 
 .estrellas-container{

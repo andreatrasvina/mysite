@@ -9,10 +9,10 @@
   <!-- Fuentes tipograficas -->
   <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
   <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
-  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
-  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
-  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
-  <link href="{% static 'https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
   <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
@@ -42,13 +42,13 @@
       </ul>
      
       <ul class="iconos-menu">        
-        <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
+        <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
         <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
         <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="#"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
       </ul>
 
       <button class="hamburguesa" type="button">
@@ -67,20 +67,28 @@
 
     <div class="cuadrados">
       <div class="carreras-container">
-        <img src="{% static 'ecommerce/assets/monoplaza.png' %}" alt="" class="mono">
-        <h3 class="categoria-text">Carreras</h3>
+        <a href="{%url 'categoria' %}">
+          <img src="{% static 'ecommerce/assets/monoplaza.png' %}" alt="" class="mono">
+          <h3 class="categoria-text">Carreras</h3>
+        </a>
       </div>
       <div class="carreras-container">
-        <img src="{% static 'ecommerce/assets/categoria-rainbow.png' %}" alt="">
-        <h3 class="categoria-text">Shooters</h3>
+        <a href="{%url 'categoria' %}">
+          <img src="{% static 'ecommerce/assets/categoria-rainbow.png' %}" alt="">
+          <h3 class="categoria-text">Shooters</h3>
+        </a>
       </div>
       <div class="carreras-container">
-        <img src="{% static 'ecommerce/assets/sims.jpeg' %}" alt="">
-        <h3 class="categoria-text">Casuales</h3>
+        <a href="{%url 'categoria' %}">
+          <img src="{% static 'ecommerce/assets/sims.jpeg' %}" alt="">
+          <h3 class="categoria-text">Casuales</h3>
+        </a>
       </div>
       <div class="carreras-container">
-        <img src="{% static 'ecommerce/assets/fifapro.jpg' %}" alt="">
-        <h3 class="categoria-text">Deportes</h3>
+        <a href="{%url 'categoria' %}">
+          <img src="{% static 'ecommerce/assets/fifapro.jpg' %}" alt="">
+          <h3 class="categoria-text">Deportes</h3>
+        </a>
       </div>
     </div>
   </div>

@@ -14,21 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
-  <link rel="stylesheet" href="{% static 'ecommerce/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'ecommerce/css/resul.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
   <header>
     <nav>
-      
-      
+     
+     
       <h1 class="title">
         <a href="{%url 'index' %}">
           <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
-        LevelUp <span class="rojo">Access</span>
+        Búsqueda
       </h1>
       <div class="buscar-container">
         <i class="fas fa-search lupa" style="color: white"></i>
@@ -40,12 +40,12 @@
         <li><a href="{%url 'categorias' %}">Categorías</a></li>
         <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
-      
+     
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
-        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
-      
+     
       <ul class="cuenta-menu">        
         <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
@@ -59,37 +59,67 @@
     </nav>
   </header>
 
-  
-  <!-- ESTE ES EL SLIDER  -->
-  <div class="slides">
-    <div class="slide slide-1">
-      <img src="{% static 'ecommerce/assets/cod.jpg' %}" alt="">
+ 
+  <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
+  <div class="texto-carro-container">
+      <h2 class="carro-texto">Resultados de la búsqueda</h2>
+  </div>
+
+  <div class="productos-container">
+    <div class="juegos-container">
+
+      <div class="juego-container">
+
+        <div class="portada-videojuego">
+          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
+        </div>
+
+        <div class="precio-container">
+          <div class="primer-linea">
+            <p class="juego-base">De los mas vendidos</p>
+            <h2 class="precio-juego">374.99MXN</h2>
+          </div>
+
+          <div class="titulo-container">
+            <h1 class="titulo-juego">Rainbow Six Siege</h1>
+          </div>
+
+          <div class="clasificacion">
+
+            <div class="textos-container">
+              <div class="botones-categoria">
+                <a href="#" class="boton-carrito">
+                    Añadir al carrito
+                </a>
+                <a href="#" class="boton-informacion">
+                    Mas información
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
+      
+ 
     </div>
-    <div class="slide slide-2">
-      <img src="{% static 'ecommerce/assets/mine-banner.jpg' %}" alt="">
-    </div>
-    <div class="slide slide-3">
-      <img src="{% static 'ecommerce/assets/fondo-acceder.jpg' %}" alt="">
-    </div>
-    <div class="slide slide-4">
-      <img src="{% static 'ecommerce/assets/r6-banner.jpeg' %}" alt="">
-    </div>
-    <div class="slide slide-5">
-      <img src="{% static 'ecommerce/assets/zomboid.jpg' %}" alt="">
+
+    
+    <div class="filtro-container">
+      <h1 class="titulo-filtro">Filtro por orden alfabético</h1>
+      
+      <!-- <div class="raya">
+
+      </div> -->
+      <a href="#" class="finalizar-compra">FILTRAR</a>
+
     </div>
   </div>
 
-  <div class="texto-container">
-    <h2 class="bienvenida-texto">
-      Descubre lo que LevelUp Access tiene para ti, lo mejor <br> está por venir!
-    </h2>
-    <a href="{%url 'iniciar-sesion' %}" class="empezar-boton">
-      Empezar
-    </a>
-  </div>
-  
 
-  <div class="foot">
+
+
+  <!-- <div class="foot">
     <div class="faq-title">
       <h1 class="faq">FAQ</h1>
     </div>
@@ -115,17 +145,20 @@
           <i class="icon fas fa-question"></i>
         </a>
       </div>
-    </div>
+    </div> -->
 
     <div class="ayuda">
       <a href="#">
-        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
+        <img src="../assets/paleta.png" alt="Icono de ayuda">
       </a>
     </div>
-  
+
+
+
   </div>
 
-
-  <script src="{% static 'ecommerce/js/main.js' %}"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/ver_password.js"></script>
 </body>
 </html>
+ 

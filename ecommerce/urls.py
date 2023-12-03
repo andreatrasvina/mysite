@@ -16,5 +16,8 @@ urlpatterns = [
     path('ofertas/', views.get_ofertas, name='ofertas'),
     path('slider/', views.get_slider, name='slider'),
     path('tienda/', views.get_tienda, name='tienda'),
+    path('categoria/', views.get_categoria, name='categoria'),
+    path('resul/', views.get_resul, name='resul'),
+    path('procesar-pago/', views.get_procesar_pago, name='procesar-pago'),
     
 ]
