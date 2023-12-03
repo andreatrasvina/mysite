@@ -58,3 +58,8 @@ def get_tienda(request):
     context={}
     template_name = 'ecommerce/tienda.html'
     return render(request, template_name, context)
+
+def get_categoria(request):
+    context={}
+    template_name = 'ecommerce/categoria.html'
+    return render(request, template_name, context)

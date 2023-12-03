@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  {% load static %}
 
+  {% load static %}
   <!-- Fuentes tipograficas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +13,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  
 
-  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
-  <link rel="shortcut icon" href="{% static 'ecommerce/assets/logo.png' %}" type="image/x-icon" >
-  <link rel="stylesheet" href="{% static 'ecommerce/css/carrito.css' %}">
+  <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'ecommerce/css/categoria.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -30,7 +28,7 @@
         <a href="{%url 'index' %}">
           <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
-        Carrito
+        Categoría
       </h1>
       <div class="buscar-container">
         <i class="fas fa-search lupa" style="color: white"></i>
@@ -49,7 +47,7 @@
       </ul>
      
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fas fa-language"></i></a></li>
       </ul>
 
@@ -64,7 +62,7 @@
  
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
   <div class="texto-carro-container">
-      <h2 class="carro-texto">Mi carrito</h2>
+      <h2 class="carro-texto">Aqui va el nombre de la categoria</h2>
   </div>
 
   <div class="productos-container">
@@ -74,10 +72,6 @@
 
         <div class="portada-videojuego">
           <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
-
-          <div class="logo-windows">
-            <img src="{% static 'ecommerce/assets/silueta-del-logotipo-de-windows (1).png' %}" alt="Icono de windows">
-          </div>
         </div>
 
         <div class="precio-container">
@@ -104,11 +98,20 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+              </div>
+
+              <div class="botones-categoria">
+                <a href="#" class="boton-carrito">
+                    Añadir al carrito
+                </a>
+                <a href="#" class="boton-wishlist">
+                    Añadir a la whishlist
+                </a>
               </div>
 
             </div>
@@ -120,21 +123,17 @@
       <div class="juego-container">
 
         <div class="portada-videojuego">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
-
-          <div class="logo-windows">
-            <img src="{% static 'ecommerce/assets/silueta-del-logotipo-de-windows (1).png' %}" alt="Icono de windows">
-          </div>
+          <img src="{% static 'ecommerce/assets/pubg-battlegrounds_t4rf.jpg' %}" alt="portada videojuego" class="portada-img">
         </div>
 
         <div class="precio-container">
           <div class="primer-linea">
             <p class="juego-base">Juego base</p>
-            <h2 class="precio-juego">374.99MXN</h2>
+            <h2 class="precio-juego">Free to play</h2>
           </div>
 
           <div class="titulo-container">
-            <h1 class="titulo-juego">Rainbow Six Siege</h1>
+            <h1 class="titulo-juego">Playerunknown Battlegrounds</h1>
           </div>
 
           <div class="clasificacion">
@@ -151,11 +150,20 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+                <img src="../assets/estrella (3).png" alt="">
+              </div>
+
+              <div class="botones-categoria">
+                <a href="#" class="boton-carrito">
+                    Añadir al carrito
+                </a>
+                <a href="#" class="boton-wishlist">
+                    Añadir a la whishlist
+                </a>
               </div>
 
             </div>
@@ -163,32 +171,23 @@
           </div>
         </div>
       </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
+      
+ 
     </div>
 
     
-    <div class="total-container">
-      <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
+    <div class="filtro-container">
+      <h1 class="titulo-filtro">Búsqueda</h1>
       
-
-      <div class="total-datos">
-        <h1>Precio</h1>
-        <h1 class="precio-total">$824MXN</h1>
-      </div>
-      <div class="total-datos">
-        <h1>Impuestos</h1>
-        <h1 class="imp"><span>Al finalizar la compra</span></h1>
+      <div class="barra-texto-filtro">
+        <input type="text" placeholder="Buscar" class="barra-busqueda-filtro">
       </div>
 
-      <div class="raya">
 
-      </div>
+      <!-- <div class="raya">
 
-      <div class="total-datos">
-        <h1>Subtotal</h1>
-        <h1 class="subtotal">$824MXN</h1>
-      </div>
-
-      <a href="#" class="finalizar-compra">FINALIZAR COMPRA</a>
+      </div> -->
+      <a href="#" class="finalizar-compra">REALIZAR BUSQUEDA</a>
 
     </div>
   </div>
@@ -226,7 +225,7 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
+        <img src="../assets/paleta.png" alt="Icono de ayuda">
       </a>
     </div>
 
@@ -234,8 +233,8 @@
 
   </div>
 
-  <script src="{% static 'ecommerce/js/main.js' %}"></script>
-  <script src="{% static 'ecommerce/js/ver_password.js' %}"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/ver_password.js"></script>
 </body>
 </html>
  
