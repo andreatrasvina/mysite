@@ -68,3 +68,8 @@ def get_resul(request):
     context={}
     template_name = 'ecommerce/resul.html'
     return render(request, template_name, context)
+
+def get_procesar_pago(request):
+    context={}
+    template_name = 'ecommerce/procesar-pago.html'
+    return render(request, template_name, context)

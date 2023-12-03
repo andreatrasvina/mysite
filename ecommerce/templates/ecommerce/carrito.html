@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   {% load static %}
-
   <!-- Fuentes tipograficas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
   
 
   <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
@@ -44,13 +44,13 @@
       </ul>
      
       <ul class="iconos-menu">        
-        <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
-        <li class="icono-carrito"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
         <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="#"><i class="fas fa-language"></i></a></li>
+        <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
       </ul>
 
       <button class="hamburguesa" type="button">
@@ -111,6 +111,12 @@
                 <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
               </div>
 
+              <div class="botones-categoria">
+                <a href="#" class="boton-carrito">
+                    Añadir al carrito
+                </a>
+              </div>
+
             </div>
             
           </div>
@@ -151,11 +157,17 @@
               </div>
 
               <div class="estrellas-container">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce../assets/estrella(3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+              </div>
+
+              <div class="botones-categoria">
+                <a href="#" class="boton-carrito">
+                    Añadir al carrito
+                </a>
               </div>
 
             </div>
@@ -163,6 +175,7 @@
           </div>
         </div>
       </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
+ 
     </div>
 
     
@@ -188,7 +201,7 @@
         <h1 class="subtotal">$824MXN</h1>
       </div>
 
-      <a href="#" class="finalizar-compra">FINALIZAR COMPRA</a>
+      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
 
     </div>
   </div>

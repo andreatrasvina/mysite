@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="{% static 'ecommerce/' %}assets/rueda-de-color.png' %}" type="image/svg+xml">
+  <!-- <link rel="icon" href="{% static 'ecommerce/' %}assets/rueda-de-color.png' %}" type="image/svg+xml"> -->
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
   <link rel="stylesheet" href="{% static 'ecommerce/css/juego.css' %}">
   <title>LevelUp Access</title>
@@ -42,13 +42,13 @@
       </ul>
      
       <ul class="iconos-menu">        
-        <li class="icono-corazon"><a href="#"><i class="fas fa-heart"></i></a></li>
+        <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
         <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
         <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="#"><i class="fas fa-language"></i></a></li>
+        <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
       </ul>
 
       <button class="hamburguesa" type="button">
@@ -70,11 +70,25 @@
 
       <div class="video-container">
 
-        <video src="{% static 'ecommerce/assets/videos/Cuphead Launch Trailer.mp4' %}" controls muted loop poster="{% static 'ecommerce/assets/images/mercedespng.png' %}" class="video-juego" autoplay></video>
+        <video src="{% static 'ecommerce/assets/videos/Cuphead Launch Trailer.mp4' %}" controls muted loop poster="" class="video-juego" autoplay></video>
 
       </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
 
+      <div class="descripcion">
+
+        <h1 class="titulo-descripcion">Disfruta de un videojuego muy desafiante</h1>
+        
+        <h1>Aqui va la descripción del videojuego la cual tiene que tener más o menos algo de texto que pueda rellenar y se pueda ver bien, y asiii jajajajaj equis de, como pueden ver quiero llorar porque ya quiero terminar esto y aun me faltan algunas cosillas por hacer</h1>
+      </div>
       
+      <h1 class="titulo-opiniones">Opiniones de los usuarios</h1>
+      <div class="opinion">
+        <h1 class="nombre">Marcos Jugador</h1>
+        <h1 class="contenido-opinion">
+          Es un juego que me costo mucho tiempo adaptarme, ya que al principio requiere algo de habilidad con los controles, eso si, me gustan mas estos juegos porque no me gustan los shooters.
+        </h1>
+      </div>
+
     </div>
 
     
@@ -87,11 +101,15 @@
 
         <div class="total-datos">
             <h1>Precio</h1>
-            <h1 class="precio-total">$824MXN</h1>
+            <h1 class="precio-total">$300MXN</h1>
         </div>
         <div class="total-datos">
-            <h1>Impuestos</h1>
-            <h1 class="imp"><span>Al finalizar la compra</span></h1>
+            <h1>Descuento</h1>
+            <h1 class="imp"><span>No aplica</span></h1>
+        </div>
+        <div class="total-datos">
+            <h1>Clasificación</h1>
+            <h1 class="imp"><span>Everyone</span></h1>
         </div>
 
       <div class="raya">
@@ -100,10 +118,10 @@
 
       <div class="total-datos">
         <h1>Subtotal</h1>
-        <h1 class="subtotal">$824MXN</h1>
+        <h1 class="subtotal">$300MXN</h1>
       </div>
 
-      <a href="#" class="finalizar-compra">FINALIZAR COMPRA</a>
+      <a href="{%url 'carrito' %}" class="finalizar-compra">AGREGAR AL CARRITO</a>
 
     </div>
   </div>

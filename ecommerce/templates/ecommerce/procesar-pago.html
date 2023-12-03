@@ -16,7 +16,7 @@
 
   <link rel="icon" href="assets/rueda-de-color.png" type="image/svg+xml">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
-  <link rel="stylesheet" href="{% static 'ecommerce/css/resul.css' %}">
+  <link rel="stylesheet" href="{% static 'ecommerce/css/procesar-pago.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -43,11 +43,11 @@
      
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
-        <li class="icono-carrito"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
+        <li class="iconos"><a href="config-cuenta.html"><i class="fas fa-user"></i></a></li>
         <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
       </ul>
 
@@ -61,60 +61,113 @@
 
  
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
-  <div class="texto-carro-container">
-      <h2 class="carro-texto">Resultados de la búsqueda</h2>
+  <div class="texto-metodo-container">
+      <h2 class="metodo-texto">Selecciona un método de pago</h2>
   </div>
 
-  <div class="productos-container">
-    <div class="juegos-container">
+  <div class="metodo-container">
+    <div class="metodo">
+        <h2>SELECCIONA UN MÉTODO DE PAGO</h2>
 
-      <div class="juego-container">
+        <div class="raya"></div>
 
-        <div class="portada-videojuego">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
+        <div class="tarjeta">
+            <input type="radio" name="metodoPago" id="tarjeta1">
+            <label class="tarjeta-texto">Tarjeta de crédito</label>
+            <!-- Otros elementos dentro de la tarjeta -->
         </div>
 
-        <div class="precio-container">
-          <div class="primer-linea">
-            <p class="juego-base">De los mas vendidos</p>
-            <h2 class="precio-juego">374.99MXN</h2>
-          </div>
+        <div class="tarjeta">
+            <input type="radio" name="metodoPago" id="tarjeta2">
+            <label class="tarjeta-texto">Tarjeta de débito</label>
+            <!-- Otros elementos dentro de la tarjeta -->
+        </div>
 
-          <div class="titulo-container">
-            <h1 class="titulo-juego">Rainbow Six Siege</h1>
-          </div>
+        <div class="tarjeta">
+            <input type="radio" name="metodoPago" id="tarjeta3">
+            <label class="tarjeta-texto">PayPal</label>
+            <!-- Otros elementos dentro de la tarjeta -->
+        </div>
+        <div class="tarjeta">
+            <input type="radio" name="metodoPago" id="tarjeta3">
+            <label class="tarjeta-texto">OxxoPay</label>
+            <!-- Otros elementos dentro de la tarjeta -->
+        </div>
+    </div>
 
-          <div class="clasificacion">
+    <div class="resumen">
+      <h1 class="resumen-compra">RESUMEN DE COMPRA</h1>
+        <div class="juegos-pago">
 
-            <div class="textos-container">
-              <div class="botones-categoria">
-                <a href="#" class="boton-carrito">
-                    Añadir al carrito
-                </a>
-                <a href="#" class="boton-informacion">
-                    Mas información
-                </a>
-              </div>
-
+          <div class="container-juego">
+            <div class="juego-foto">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
             </div>
-          </div>
-        </div>
-      </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
-      
- 
+  
+            <div class="juego-titulo">
+              <h1>
+                Yeyos's game
+              </h1>
+              <h2>
+                MXN 20.00
+              </h2>
+            </div>
+            
+          </div><!-- Aqui termina container-juego -->
+          <div class="container-juego">
+            <div class="juego-foto">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
+            </div>
+  
+            <div class="juego-titulo">
+              <h1>
+                Yeyos's game
+              </h1>
+              <h2>
+                MXN 20.00
+              </h2>
+            </div>
+            
+          </div><!-- Aqui termina container-juego -->
+
+          <div class="container-juego">
+            <div class="juego-foto">
+              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
+            </div>
+  
+            <div class="juego-titulo">
+              <h1>
+                Yeyos's game
+              </h1>
+              <h2>
+                MXN 20.00
+              </h2>
+            </div>
+            
+          </div><!-- Aqui termina container-juego -->
     </div>
 
+    <div class="precio-datos">
+      <h1>Precio</h1>
+      <h1 class="precio-total">$824MXN</h1>
+    </div>
     
-    <div class="filtro-container">
-      <h1 class="titulo-filtro">Filtro por orden alfabético</h1>
-      
-      <!-- <div class="raya">
-
-      </div> -->
-      <a href="#" class="finalizar-compra">FILTRAR</a>
-
+    <div class="raya2"></div>
+    
+    <div class="total-datos">
+      <h1>Total</h1>
+      <h1 class="precio-total">$824MXN</h1>
     </div>
-  </div>
+
+    <a href="{%url 'procesar-pago' %}" class="finalizar-compra">Confirmar compra</a>
+    <a href="{%url 'carrito' %}" class="cancelar-compra">Cancelar compra</a>
+
+
+</div>
+
+
+
+ 
 
 
 
