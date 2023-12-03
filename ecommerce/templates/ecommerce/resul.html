@@ -43,7 +43,7 @@
      
       <ul class="iconos-menu">        
         <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
-        <li class="icono-carrito"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
      
       <ul class="cuenta-menu">        
@@ -88,10 +88,10 @@
 
             <div class="textos-container">
               <div class="botones-categoria">
-                <a href="#" class="boton-carrito">
+                <a href="{%url 'carrito' %}" class="boton-carrito">
                     Añadir al carrito
                 </a>
-                <a href="#" class="boton-informacion">
+                <a href="{%url 'juego' %}" class="boton-informacion">
                     Mas información
                 </a>
               </div>

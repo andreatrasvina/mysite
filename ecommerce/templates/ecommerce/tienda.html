@@ -85,20 +85,28 @@
     <div class="right-container">
       <div class="juegos">
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
-          <h2><a href="">Rainbow Six</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Rainbow Six</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
-          <h2><a href="">Fifa 15</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Fifa 15</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
-          <h2><a href="juego.html">Cuphead</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Cuphead</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
-          <h2><a href="">Project Zomboid</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Project Zomboid</a></h2>
+          </a>
         </div>
       </div>
 
