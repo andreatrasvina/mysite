@@ -39,6 +39,25 @@
         <li><a href="{%url 'tienda' %}">Tienda</a></li>
         <li><a href="{%url 'categorias' %}">Categorías</a></li>
         <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
+        {% block content %}
+        {% if user.is_authenticated %}
+
+        <li>
+          <a href="/logout/">Logout</a>
+        </li>
+        
+        {% else %}
+
+        <li>
+          <a href="/crear-cuenta/">Crear Cuenta</a>
+        </li>
+
+        <li>
+          <a href="/iniciar-sesion/">Inicia Sesion</a>
+        </li>
+
+        {% endif %}
+        {% endblock %}
       </ul>
       
       <ul class="iconos-menu">        
