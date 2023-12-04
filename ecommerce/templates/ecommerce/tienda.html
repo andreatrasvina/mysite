@@ -52,7 +52,7 @@
    
         <ul class="cuenta-menu">  
           <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-          <li class="iconos"><a href="/logout/"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+          <li class="iconos"><a href="/logout/"><i class="fa-solid fa-door-open"></i></a></li>
         </ul>
 
         {% else %}
@@ -82,10 +82,20 @@
   <div class="container">
     <div class="left-container">
       <ul class="iconos-tienda-caja">
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/etiqueta-de-precio (1).png' %}" alt="Icono 1"> Tienda</a></li>
+        
+        {% if user.is_authenticated %}
+
+          <li class="division">
+            <a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a>
+            <p>Aun no tienes juegos comprados</p>
+          </li>
+
+        {% else %}
           <li class=""><a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a></li>
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/ventana-de-chat.png' %}" alt="Icono 3"> Ayuda</a></li>
-      </ul>
+          <p>Inicia sesion para ver todos tus juegos aqui</p>
+          {% endif %}
+        
+        </ul>
   </div>
   
 

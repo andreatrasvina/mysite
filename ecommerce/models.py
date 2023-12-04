@@ -9,6 +9,48 @@ class Categoria(models.Model):
     
     class Meta:
         db_table='categorias'
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 # Modelo para Usuarios
 class Usuario(models.Model):
