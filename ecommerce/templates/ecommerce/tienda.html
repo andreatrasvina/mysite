@@ -41,14 +41,32 @@
         <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
       </ul>
       
-      <ul class="iconos-menu">        
-        <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
-        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
-      </ul>
-      
       <ul class="cuenta-menu">        
-        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
+        
+        {% block content %}
+        {% if user.is_authenticated %}
+        <ul class="iconos-menu">   
+          <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
+          <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+   
+        <ul class="cuenta-menu">  
+          <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
+          <li class="iconos"><a href="/logout/"><i class="fa-solid fa-door-open"></i></a></li>
+        </ul>
+
+        {% else %}
+
+        <li>
+          <a href="/crear-cuenta/">Crear Cuenta</a>
+        </li>
+
+        <li>
+          <a href="/iniciar-sesion/">Inicia Sesion</a>
+        </li>
+
+        {% endif %}
+        {% endblock %}
       </ul>
 
       <button class="hamburguesa" type="button">
@@ -64,10 +82,21 @@
   <div class="container">
     <div class="left-container">
       <ul class="iconos-tienda-caja">
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/etiqueta-de-precio (1).png' %}" alt="Icono 1"> Tienda</a></li>
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a></li>
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/ventana-de-chat.png' %}" alt="Icono 3"> Ayuda</a></li>
-      </ul>
+        {% if user.is_authenticated %}
+
+        <li class="listas-verticales">
+          <h1 class="juegos-comprados">Juegos comprados</h1>
+          <h1 class="juegos-comprados">Titulo de juego 1</h1>
+
+        </li>
+
+        {% else %}
+          <li class="">
+            <h1 class="juegos-comprados">Inicia sesión para ver tus juegos</h1>
+          </li>
+          {% endif %}
+        
+        </ul>
   </div>
   
 
@@ -85,20 +114,28 @@
     <div class="right-container">
       <div class="juegos">
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
-          <h2><a href="">Rainbow Six</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Rainbow Six</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
-          <h2><a href="">Fifa 15</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/fifa-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Fifa 15</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
-          <h2><a href="juego.html">Cuphead</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/cuphead-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Cuphead</a></h2>
+          </a>
         </div>
         <div class="portadas">
-          <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
-          <h2><a href="">Project Zomboid</a></h2>
+          <a href="{%url 'juego' %}">
+            <img src="{% static 'ecommerce/assets/zomboid-cover.jpg' %}" alt="">
+            <h2><a href="{%url 'juego' %}">Project Zomboid</a></h2>
+          </a>
         </div>
       </div>
 

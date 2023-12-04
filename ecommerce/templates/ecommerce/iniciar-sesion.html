@@ -1,136 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-  {% load static %}
-  <!-- Fuentes tipograficas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    {% load static %}
+    <!-- Fuentes tipograficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'ecommerce/assets/logo.png' %}" />
-  <link rel="stylesheet" href="{% static 'ecommerce/css/iniciar-sesion.css' %}">
-  <title>LevelUp Access</title>
-</head>
-<body>
-  <header>
-    <nav>
-     
-     
-      <h1 class="title">
-        <a href="{%url 'index' %}">
-          <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
-        </a>
-        Iniciar Sesión
-      </h1>
-      <div class="buscar-container">
-        <i class="fas fa-search lupa" style="color: white"></i>
-        <input type="text" class="buscar-barra" placeholder="Buscar">
-      </div>
+    <link
+      rel="icon"
+      href="{% static 'ecommerce/assets/rueda-de-color.png' %}"
+      type="image/svg+xml"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'ecommerce/assets/logo.png' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'ecommerce/css/iniciar-sesion.css' %}"
+    />
+    <title>LevelUp Access</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1 class="title">
+          <a href="{%url 'index' %}">
+            <img
+              class="logo"
+              src="{% static 'ecommerce/assets/logo.png' %}"
+              alt="LevelUp Access logo"
+            />
+          </a>
+          Iniciar Sesión
+        </h1>
+        <div class="buscar-container">
+          <i class="fas fa-search lupa" style="color: white"></i>
+          <input type="text" class="buscar-barra" placeholder="Buscar" />
+        </div>
 
-      <ul class="clases-menu">
-        <li><a href="{%url 'tienda' %}">Tienda</a></li>
-        <li><a href="{%url 'categorias' %}">Categorías</a></li>
-        <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
-      </ul>
-     
-      <ul class="iconos-menu">        
-        <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
-        <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
-      </ul>
-     
-      <ul class="cuenta-menu">        
-        <li class="iconos"><a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a></li>
-        <li class="iconos"><a href="#"><i class="fa-solid fa-door-open"></i></a></li>
+        <ul class="clases-menu">
+          <li><a href="{%url 'tienda' %}">Tienda</a></li>
+          <li><a href="{%url 'categorias' %}">Categorías</a></li>
+          <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
+        </ul>
 
-      </ul>
+        <ul class="cuenta-menu">        
+        
+          {% block content %}
+          {% if user.is_authenticated %}
+          
+  
+          {% endif %}
+          {% endblock %}
+        </ul>
 
-      <button class="hamburguesa" type="button">
-        <span class="br-1"></span>
-        <span class="br-2"></span>
-        <span class="br-3"></span>
-      </button>
-    </nav>
-  </header>
+        <button class="hamburguesa" type="button">
+          <span class="br-1"></span>
+          <span class="br-2"></span>
+          <span class="br-3"></span>
+        </button>
+      </nav>
+    </header>
 
- 
-  <!-- ESTE ES EL ESPACIO DE LOS INPUTS  -->
+    <!-- ESTE ES EL ESPACIO DE LOS INPUTS  -->
+    <form method="POST" action="/iniciar-sesion/">
+      {% csrf_token %}
 
-
-  <form action="#">
-    <div class="container-form">
+      <div class="container-form">
         <div class="logo-form">
-            <img src="{% static 'ecommerce/assets/logo.png' %}" alt="">
+          <img src="{% static 'ecommerce/assets/logo.png' %}" alt="" />
         </div>
+
         <div class="texto-iniciar">
-            <h2>Inicia Sesión en tu cuenta de LevelUp Access</h2>
+          <h2>Inicia Sesión en tu cuenta de LevelUp Access</h2>
         </div>
+
+        
         <div class="inputs">
-            <input type = "text" class="correo" placeholder="Dirección de correo electrónico">
-            <input type="password" class="password" placeholder="Contraseña" id="passwordInput">
-            <span class="toggle-password" onclick="togglePassword()">
-               <img src="{% static 'ecommerce/assets/visible.png' %}" alt="Mostrar contraseña" id="eyeIcon">
-            </span>
+          {{form}}
+          
+          
+          <button class="btn-sesion">INICIAR SESIÓN</button>
         </div>
         <div class="olvidar">
-            <a href="#" class="">¿Olvidaste tu contraseña?</a>
+          <a href="#" class=""></a>
         </div>
-        <div class="btn-sesion">
-            <a href="{%url 'index' %}" class="">INICIAR SESIÓN</a>
-        </div>
+
         <div class="crear-cuenta">
-            <a href="{%url 'crear-cuenta' %}" class="">¿Aún no tienes cuenta? Crea una!</a>
+          <a href="{%url 'crear-cuenta' %}" class="">¿Aún no tienes cuenta? Crea una!</a>
         </div>
-    </div>
-  </form>
+        
+        {{error}}
+      </div>
+    </form>
 
+    <div class="foot">
+      <div class="faq-title">
+        <h1 class="faq">FAQ</h1>
+      </div>
 
-  <div class="foot">
-    <div class="faq-title">
-      <h1 class="faq">FAQ</h1>
-    </div>
+      <div class="redes-sociales">
+        <div class="circle">
+          <a href="#">
+            <i class="icon fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <div class="circle">
+          <a href="#">
+            <i class="icon fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="circle">
+          <a href="#">
+            <i class="icon fas fa-times"></i>
+          </a>
+        </div>
+        <div class="circle">
+          <a href="#">
+            <i class="icon fas fa-question"></i>
+          </a>
+        </div>
+      </div>
 
-    <div class="redes-sociales">
-      <div class="circle">
+      <div class="ayuda">
         <a href="#">
-          <i class="icon fab fa-facebook-f"></i>
+          <img
+            src="{% static 'ecommerce/assets/paleta.png' %}"
+            alt="Icono de ayuda"
+          />
         </a>
       </div>
-      <div class="circle">
-        <a href="#">
-          <i class="icon fab fa-instagram"></i>
-        </a>
-      </div>
-      <div class="circle">
-        <a href="#">
-          <i class="icon fas fa-times"></i>
-        </a>
-      </div>
-      <div class="circle">
-        <a href="#">
-          <i class="icon fas fa-question"></i>
-        </a>
-      </div>
     </div>
 
-    <div class="ayuda">
-      <a href="#">
-        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
-      </a>
-    </div>
- 
-  </div>
-
-
-  <script src="{% static 'ecommerce/js/main.js' %}"></script>
-  <script src="{% static 'ecommerce/js/ver_password.js' %}"></script>
-</body>
+    <script src="{% static 'ecommerce/js/main.js' %}"></script>
+    <script src="{% static 'ecommerce/js/ver_password.js' %}"></script>
+  </body>
 </html>
- 
