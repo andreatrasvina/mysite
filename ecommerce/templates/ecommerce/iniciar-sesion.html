@@ -97,15 +97,24 @@
         </div>
 
         <div class="texto-iniciar">
-          <h2>BiENVENIDO</h2>
+          <h2>Inicia Sesión en tu cuenta de LevelUp Access</h2>
         </div>
 
+        
         <div class="inputs">
           {{form}}
-
-          <button>iniciar sesion</button>
+          
+          
+          <button class="btn-sesion">INICIAR SESIÓN</button>
         </div>
-        <br /><br /><br /><br /><br /><br /><br />
+        <div class="olvidar">
+          <a href="#" class=""></a>
+        </div>
+
+        <div class="crear-cuenta">
+          <a href="{%url 'crear-cuenta' %}" class="">¿Aún no tienes cuenta? Crea una!</a>
+        </div>
+        
         {{error}}
       </div>
     </form>

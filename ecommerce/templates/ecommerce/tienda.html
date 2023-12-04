@@ -82,17 +82,18 @@
   <div class="container">
     <div class="left-container">
       <ul class="iconos-tienda-caja">
-        
         {% if user.is_authenticated %}
 
-          <li class="division">
-            <a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a>
-            <p>Aun no tienes juegos comprados</p>
-          </li>
+        <li class="listas-verticales">
+          <h1 class="juegos-comprados">Juegos comprados</h1>
+          <h1 class="juegos-comprados">Titulo de juego 1</h1>
+
+        </li>
 
         {% else %}
-          <li class=""><a href="#"><img src="{% static 'ecommerce/assets/menu (3).png' %}" alt="Icono 2"> Descargas</a></li>
-          <p>Inicia sesion para ver todos tus juegos aqui</p>
+          <li class="">
+            <h1 class="juegos-comprados">Inicia sesión para ver tus juegos</h1>
+          </li>
           {% endif %}
         
         </ul>

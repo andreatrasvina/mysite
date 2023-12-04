@@ -113,14 +113,30 @@ def get_procesar_pago(request):
     return render(request, template_name, context)
 
 def get_crearCuenta(request):
-
     if request.method == 'GET':
-        return render(request, 'ecommerce/crear-cuenta.html', {
-            'form': UserCreationForm
-        })
+        form = UserCreationForm()
+
+        # Elimina los textos predeterminados de los campos
+        form.fields['username'].label = ''
+        form.fields['password1'].label = ''
+        form.fields['password2'].label = ''
+
+        # Elimina los mensajes de ayuda de los campos de contraseña
+        form.fields['password1'].help_text = ''
+        form.fields['password2'].help_text = ''
+
+        # Elimina el mensaje de ayuda del campo de username
+        form.fields['username'].help_text = ''
+
+        # Agrega placeholders a los campos del formulario
+        form.fields['username'].widget.attrs['placeholder'] = 'Nombre de usuario o correo'
+        form.fields['password1'].widget.attrs['placeholder'] = 'Contraseña'
+        form.fields['password2'].widget.attrs['placeholder'] = 'Confirmar contraseña'
+
+        return render(request, 'ecommerce/crear-cuenta.html', {'form': form})
     else:
         if request.POST['password1'] == request.POST['password2']:
-            # se registra al naco
+            # se registra al usuario
             try:
                 user = User.objects.create_user(
                     username=request.POST['username'], password=request.POST['password1'])
@@ -136,7 +152,7 @@ def get_crearCuenta(request):
 
         return render(request, 'ecommerce/crear-cuenta.html', {
             'form': UserCreationForm,
-            "error": 'Las contrasenas no coinciden'
+            "error": 'Las contraseñas no coinciden'
         })
 
 
@@ -145,19 +161,33 @@ def signout(request):
     return redirect('index')
 
 
+from django.contrib.auth.forms import AuthenticationForm
+
 def get_iniciarSesion(request):
     if request.method == 'GET':
-        return render(request, 'ecommerce/iniciar-sesion.html', {
-            'form': AuthenticationForm
-        })
+        form = AuthenticationForm()
+        # Elimina los textos predeterminados de los campos
+        form.fields['username'].label = ''
+        form.fields['password'].label = ''
+        # Agrega placeholders a los campos del formulario
+        form.fields['username'].widget.attrs['placeholder'] = 'Dirección de correo electrónico'
+        form.fields['password'].widget.attrs['placeholder'] = 'Contraseña'
+        return render(request, 'ecommerce/iniciar-sesion.html', {'form': form})
     else:
         user = authenticate(
             request, username=request.POST['username'], password=request.POST['password'])
 
         if user is None:
+            form = AuthenticationForm()
+            # Elimina los textos predeterminados de los campos
+            form.fields['username'].label = ''
+            form.fields['password'].label = ''
+            # Agrega placeholders a los campos del formulario
+            form.fields['username'].widget.attrs['placeholder'] = 'Usuario'
+            form.fields['password'].widget.attrs['placeholder'] = 'Contraseña'
             return render(request, 'ecommerce/iniciar-sesion.html', {
-                'form': AuthenticationForm,
-                'error': 'Usuario o contrasena es incorreta'
+                'form': form,
+                'error': 'Usuario o contraseña incorrecta'
             })
         else:
             login(request, user)
