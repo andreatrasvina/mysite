@@ -273,6 +273,7 @@ nav{
 /* EL CODIGO PARA LA OFERTA COMIENZA AQUI */
 
 
+
 .juegos-container{
     display: flex;
     align-items: center;
@@ -326,6 +327,7 @@ nav{
     margin: 12px;
     margin-bottom: 0px;
 }
+
 
 /*PRECIO DE LOS JUEGOS*/
 

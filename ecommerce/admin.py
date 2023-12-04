@@ -12,6 +12,9 @@ from .models import MetodoDePago
 from .models import JuegosPublicados
 admin.site.register(JuegosPublicados)
 
+from .models import slidersPromocionales
+admin.site.register(slidersPromocionales)
+
 admin.site.register(Categoria)
 admin.site.register(Usuario)
 admin.site.register(Oferta)

@@ -34,7 +34,12 @@ class ComprasRegistradas(models.Model):
     class Meta:
         db_table = 'comprasRegistradas'
     
-    
+
+class slidersPromocionales(models.Model):
+    imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
+
+    class Meta:
+        db_table = 'slidersPromocionales'
         
         
         

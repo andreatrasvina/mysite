@@ -43,6 +43,7 @@
       type="image/x-icon"
       href="{% static 'ecommerce/assets/logo.png' %}"
     />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'ecommerce/css/categorias.css' %}" />
     <title>LevelUp Access</title>
   </head>
@@ -157,35 +158,29 @@
 
     <div class="juegos-container">
       <div class="juegos-promocion">
-        <h1 class="juegos-content-text">Juegos en promocion</h1>
+          <h1 class="juegos-content-text">Juegos en promocion</h1>
       </div>
       <div class="primera-fila-container">
-        <div class="portada-1">
-
-          {% for juego in juegos %} 
-
-          {% if juego.imagen %}
-
-          <a href="{% url 'detalle_juego' juego_id=1 %}"> 
-            
-            <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
-          {% else %} 
-          No hay imagen disponible. {% endif %}
-          </a>
-
-          <div class="categoria-porcentaje-container">
-            <h3 class="categoria-juego">{{ juego.clasificacion }}</h3>
-            <h3 class="categoria-porciento">{{ juego.descuento }}</h3>
+          <div class="portada-1">
+              {% for juego in juegos %}
+                  {% if juego.imagen %}
+                      <a href="{% url 'detalle_juego' juego_id=juego.id %}">
+                          <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
+                      </a>
+                      <div class="categoria-porcentaje-container">
+                          <h3 class="categoria-juego">{{ juego.clasificacion }}</h3>
+                          <h3 class="categoria-porciento">{{ juego.descuento }}</h3>
+                      </div>
+                      <div class="titulo-precio-container">
+                          <h3 class="categoria-titulo ">{{ juego.nombreJuego }}</h3>
+                          <h3 class="categoria-precio">{{ juego.precio }}</h3>
+                      </div>
+                  {% endif %}
+              {% endfor %}
           </div>
-          <div class="titulo-precio-container">
-            <h3 class="categoria-titulo">{{ juego.nombreJuego }}</h3>
-            <h3 class="categoria-precio">{{ juego.precio }}</h3>
-          </div>
-
-          {% endfor %}
-        </div>
       </div>
-    </div>
+  </div>
+  
 
     <div class="foot">
       <div class="faq-title">
@@ -224,6 +219,17 @@
         </a>
       </div>
     </div>
+
+
+    <!-- Incluye jQuery desde un archivo estático -->
+    <script src="{% static 'ecommerce/js/jquery-3.2.1.slim.min.js' %}"></script>
+
+    <!-- Incluye Popper.js desde un archivo estático -->
+    <script src="{% static 'ecommerce/js/popper.min.js' %}"></script>
+
+    <!-- Incluye Bootstrap JS desde un archivo estático -->
+    <script src="{% static 'ecommerce/js/bootstrap.min.js' %}"></script>
+
 
     <script src="{% static 'ecommerce/js/main.js' %}"></script>
   </body>

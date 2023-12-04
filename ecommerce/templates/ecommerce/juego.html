@@ -151,12 +151,6 @@
         <h1 class="subtotal">$ {{ juego.total }}</h1>
       </div>
 
-      <form method="post" action="{% url 'juego' juego_id=juego.id %}">
-        {% csrf_token %}
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" name="cantidad" value="1" min="1">
-        <button type="submit">Comprar</button>
-      </form>
 
     </div>
   </div>

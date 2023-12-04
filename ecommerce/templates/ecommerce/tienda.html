@@ -103,10 +103,16 @@
     <div class="center-container">
       <div class="slider">
         <div class="slider--inner">
-          <img src="{% static 'ecommerce/assets/fondo-acceder.jpg' %}" alt="">
-          <img src="{% static 'ecommerce/assets/banner.png' %}" alt="">
-          <img src="{% static 'ecommerce/assets/zomboid.jpg' %}" alt="">
-          <img src="{% static 'ecommerce/assets/mine-banner.jpg' %}" alt="">
+
+          {% for slider in sliders %} 
+
+          {% if slider.imagen %}
+          <img src="{{ slider.imagen.url }}" alt="{{ slider.nombre }}" />
+          {% else %}
+          No hay imagen disponible. {% endif %}
+
+          {% endfor %}
+
         </div>
       </div>
     </div>

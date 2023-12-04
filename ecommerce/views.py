@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 
 #MODELOS IMPORTADOS
-from .models import JuegosPublicados, ComprasRegistradas
+from .models import JuegosPublicados, ComprasRegistradas, slidersPromocionales
 
 # Create your views here.
 def lista_juegos(request):
@@ -192,3 +192,9 @@ def get_iniciarSesion(request):
         else:
             login(request, user)
             return redirect('tienda')
+
+
+def get_tienda(request):
+    sliders = slidersPromocionales.objects.all()
+    context = {'sliders': sliders}
+    return render(request, 'ecommerce/tienda.html', context)
