@@ -36,6 +36,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# settings.py
+MEDIA_URL = '/imagenes/'
+MEDIA_ROOT = BASE_DIR / 'ecommerce'
+ROOT_URLCONF = 'ecommerce.urls'
+
+
 # Application definition
 
 INSTALLED_APPS = [

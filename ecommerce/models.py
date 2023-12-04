@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.core.validators import MaxValueValidator
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,6 +11,29 @@ class Categoria(models.Model):
     class Meta:
         db_table='categorias'
         
+class JuegosPublicados(models.Model):
+    nombreJuego = models.CharField(max_length=100, null=False)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    descuento = models.DecimalField(max_digits=5, decimal_places=2)
+    clasificacion = models.CharField(max_length=100)
+    total = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    titulodescripcion = models.TextField(null=True)
+    descripcion = models.TextField(null=True)
+    imagen = models.ImageField(upload_to='imagenes/', null=True, blank=True)
+    
+    class Meta:
+        db_table='juegosPublicados'
+        
+        
+class ComprasRegistradas(models.Model):
+    juego = models.ForeignKey(JuegosPublicados, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha_compra = models.DateTimeField(auto_now_add=True)
+    cantidad = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        db_table = 'comprasRegistradas'
+    
     
         
         

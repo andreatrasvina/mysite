@@ -79,8 +79,9 @@
 
  
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
+
   <div class="texto-juego-container">
-      <h2 class="texto-juego">Cuphead</h2>
+      <h2 class="texto-juego">{{ juego.nombreJuego }}</h2>
   </div>
 
   <div class="producto-container">
@@ -88,15 +89,18 @@
 
       <div class="video-container">
 
-        <video src="{% static 'ecommerce/assets/videos/Cuphead Launch Trailer.mp4' %}" controls muted loop poster="" class="video-juego" autoplay></video>
+        {% if juego.imagen %}
+        <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
+        {% else %}
+        No hay imagen disponible. {% endif %}
 
       </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
 
       <div class="descripcion">
 
-        <h1 class="titulo-descripcion">Disfruta de un videojuego muy desafiante</h1>
+        <h1 class="titulo-descripcion">{{ juego.titulodescripcion }}</h1>
         
-        <h1>Aqui va la descripción del videojuego la cual tiene que tener más o menos algo de texto que pueda rellenar y se pueda ver bien, y asiii jajajajaj equis de, como pueden ver quiero llorar porque ya quiero terminar esto y aun me faltan algunas cosillas por hacer</h1>
+        <h1>{{ juego.descripcion }}</h1>
       </div>
       
       <h1 class="titulo-opiniones">Opiniones de los usuarios</h1>
@@ -113,17 +117,25 @@
     <div class="sidebar-container">
 
         <div class="titulo-juego-side">
-            <img src="{% static 'ecommerce/assets/cuphead-title.webp' %}" alt="">
+          {% if juego.imagen %}
+          <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
+          {% else %}
+          No hay imagen disponible. {% endif %}
         </div>
       
 
         <div class="total-datos">
             <h1>Precio</h1>
-            <h1 class="precio-total">$300MXN</h1>
+            <h1 class="precio-total">${{ juego.precio }}</h1>
         </div>
         <div class="total-datos">
             <h1>Descuento</h1>
-            <h1 class="imp"><span>No aplica</span></h1>
+            <h1 class="imp"><span>
+              {% if juego.descuento %}
+                %{{ juego.descuento }}
+              {% else %}
+              No Aplica
+              {% endif %}</span></h1>
         </div>
         <div class="total-datos">
             <h1>Clasificación</h1>
@@ -136,10 +148,15 @@
 
       <div class="total-datos">
         <h1>Subtotal</h1>
-        <h1 class="subtotal">$300MXN</h1>
+        <h1 class="subtotal">$ {{ juego.total }}</h1>
       </div>
 
-      <a href="{%url 'carrito' %}" class="finalizar-compra">AGREGAR AL CARRITO</a>
+      <form method="post" action="{% url 'juego' juego_id=juego.id %}">
+        {% csrf_token %}
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" value="1" min="1">
+        <button type="submit">Comprar</button>
+      </form>
 
     </div>
   </div>

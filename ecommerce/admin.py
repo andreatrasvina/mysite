@@ -9,6 +9,9 @@ from .models import Comentario
 from .models import Compra
 from .models import MetodoDePago
 
+from .models import JuegosPublicados
+admin.site.register(JuegosPublicados)
+
 admin.site.register(Categoria)
 admin.site.register(Usuario)
 admin.site.register(Oferta)

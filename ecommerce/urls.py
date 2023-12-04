@@ -20,5 +20,9 @@ urlpatterns = [
     path('resul/', views.get_resul, name='resul'),
     path('procesar-pago/', views.get_procesar_pago, name='procesar-pago'),
     path('logout/', views.signout, name='logout'),
+    path('lista_juegos', views.lista_juegos, name='lista_juegos'),
+    path('juego/<int:juego_id>/', views.detalle_juego, name='detalle_juego'),
+    
+    
     
 ]

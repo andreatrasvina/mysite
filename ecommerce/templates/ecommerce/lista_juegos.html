@@ -1,0 +1,25 @@
+<!-- lista_juegos.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Juegos Publicados</title>
+  </head>
+  <body>
+    <h1>Lista de Juegos Publicados</h1>
+
+    <!-- Iterar sobre los juegos y mostrar la información -->
+    <ul>
+      {% for juego in juegos %}
+      <li>
+        <strong>{{ juego.nombreJuego }}</strong><br />
+        Descripción: {{ juego.descripcion }}<br />
+        Precio: ${{ juego.precio }}<br />
+        {% if juego.imagen %}
+        <img src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
+        {% else %}
+        No hay imagen disponible. {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

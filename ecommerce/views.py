@@ -1,8 +1,7 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 
-from django.views.generic import TemplateView
-from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -10,18 +9,56 @@ from django.http import HttpResponse
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 
+
+
+#MODELOS IMPORTADOS
+from .models import JuegosPublicados, ComprasRegistradas
+
 # Create your views here.
+def lista_juegos(request):
+    juegos = JuegosPublicados.objects.all()
+    context = {'juegos': juegos}
+    return render(request, 'ecommerce/lista_juegos.html', context)
+
+@login_required
+def detalle_juego(request, juego_id):
+    juego = get_object_or_404(JuegosPublicados, pk=juego_id)
+
+    if request.method == 'POST':
+        # Procesar la compra y agregar al carrito
+        cantidad = int(request.POST.get('cantidad', 1))
+        user = request.user  # Obtener el usuario actualmente autenticado
+        precio_total = juego.precio * cantidad
+        ComprasRegistradas.objects.create(juego=juego, user=user, cantidad=cantidad, total=precio_total)
+        
+        return redirect('carrito')
+    # Obtener todas las compras en el carrito para el usuario actual
+    carrito = ComprasRegistradas.objects.filter(user=request.user)
+
+    return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito})
+
 
 @login_required(login_url='/iniciar-sesion/')
 def get_carrito(request):
+    carrito = ComprasRegistradas.objects.filter(user=request.user)
+
+    return render(request, 'ecommerce/carrito.html', {'carrito': carrito})
+
+    '''
+    def detalle_juego(request, juego_id):
+    juego = JuegosPublicados.objects.get(pk=juego_id)# Obtén el juego desde la base de datos
+    return render(request, 'ecommerce/juego.html', {'juego': juego})# Renderiza la plantilla con los datos del juego
+
+    ///
     context={}
     template_name = 'ecommerce/carrito.html'
     return render(request, template_name, context)
+    '''
 
 def get_categorias(request):
-    context={}
-    template_name = 'ecommerce/categorias.html'
-    return render(request, template_name, context)
+    juegos = JuegosPublicados.objects.all()
+    context = {'juegos': juegos}
+    return render(request, 'ecommerce/categorias.html', context)
 
 @login_required(login_url='/iniciar-sesion/')
 def get_configCuenta(request):
