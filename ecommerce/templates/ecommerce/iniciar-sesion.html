@@ -69,24 +69,14 @@
           <li><a href="{%url 'ofertas' %}">Ofertas</a></li>
         </ul>
 
-        <ul class="iconos-menu">
-          <li class="icono-corazon">
-            <a href="#"><i class="fas fa-book"></i></a>
-          </li>
-          <li class="icono-carrito">
-            <a href="{%url 'carrito' %}"
-              ><i class="fas fa-shopping-cart"></i
-            ></a>
-          </li>
-        </ul>
-
-        <ul class="cuenta-menu">
-          <li class="iconos">
-            <a href="{%url 'config-cuenta' %}"><i class="fas fa-user"></i></a>
-          </li>
-          <li class="iconos">
-            <a href="#"><i class="fa-solid fa-door-open"></i></a>
-          </li>
+        <ul class="cuenta-menu">        
+        
+          {% block content %}
+          {% if user.is_authenticated %}
+          
+  
+          {% endif %}
+          {% endblock %}
         </ul>
 
         <button class="hamburguesa" type="button">

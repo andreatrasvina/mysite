@@ -8,9 +8,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required(login_url='/iniciar-sesion/')
 def get_carrito(request):
     context={}
     template_name = 'ecommerce/carrito.html'
@@ -21,8 +23,9 @@ def get_categorias(request):
     template_name = 'ecommerce/categorias.html'
     return render(request, template_name, context)
 
+@login_required(login_url='/iniciar-sesion/')
 def get_configCuenta(request):
-    context={}
+    context = {}
     template_name = 'ecommerce/config-cuenta.html'
     return render(request, template_name, context)
 
@@ -66,6 +69,7 @@ def get_resul(request):
     template_name = 'ecommerce/resul.html'
     return render(request, template_name, context)
 
+@login_required(login_url='/iniciar-sesion/')
 def get_procesar_pago(request):
     context={}
     template_name = 'ecommerce/procesar-pago.html'
