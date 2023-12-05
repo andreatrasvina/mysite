@@ -61,8 +61,12 @@
           Categorías
         </h1>
         <div class="buscar-container">
-          <i class="fas fa-search lupa" style="color: white"></i>
-          <input type="text" class="buscar-barra" placeholder="Buscar" />
+          <!-- <i class="fas fa-search lupa" style="color: white"></i> -->
+          <form method="post" action="{% url 'buscar_productos' %}">
+            {% csrf_token %}
+            <input type="text" name="q" placeholder="Buscar productos" class="buscar-barra">
+            <button type="submit">Buscar</button>
+          </form>
         </div>
 
         <ul class="clases-menu">

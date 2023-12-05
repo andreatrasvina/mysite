@@ -152,6 +152,13 @@
       </div>
 
 
+<form method="post" action="{% url 'agregar_al_carrito' %}">
+    {% csrf_token %}
+    <input type="hidden" name="juego_id" value="{{ juego.id }}">
+    <button type="submit" class="boton-carrito">Añadir al carrito</button>
+</form>
+
+
     </div>
   </div>
 

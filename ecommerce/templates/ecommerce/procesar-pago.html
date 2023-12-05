@@ -31,8 +31,12 @@
         Búsqueda
       </h1>
       <div class="buscar-container">
-        <i class="fas fa-search lupa" style="color: white"></i>
-        <input type="text" class="buscar-barra" placeholder="Buscar">
+        <!-- <i class="fas fa-search lupa" style="color: white"></i> -->
+        <form method="post" action="{% url 'buscar_productos' %}">
+          {% csrf_token %}
+          <input type="text" name="q" placeholder="Buscar productos" class="buscar-barra">
+          <button type="submit">Buscar</button>
+        </form>
       </div>
 
       <ul class="clases-menu">
@@ -107,49 +111,17 @@
     <div class="resumen">
       <h1 class="resumen-compra">RESUMEN DE COMPRA</h1>
         <div class="juegos-pago">
-
           <div class="container-juego">
             <div class="juego-foto">
-              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
+              <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="">
             </div>
   
             <div class="juego-titulo">
               <h1>
-                Yeyos's game
+                Rainbow Six
               </h1>
               <h2>
-                MXN 20.00
-              </h2>
-            </div>
-            
-          </div><!-- Aqui termina container-juego -->
-          <div class="container-juego">
-            <div class="juego-foto">
-              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
-            </div>
-  
-            <div class="juego-titulo">
-              <h1>
-                Yeyos's game
-              </h1>
-              <h2>
-                MXN 20.00
-              </h2>
-            </div>
-            
-          </div><!-- Aqui termina container-juego -->
-
-          <div class="container-juego">
-            <div class="juego-foto">
-              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
-            </div>
-  
-            <div class="juego-titulo">
-              <h1>
-                Yeyos's game
-              </h1>
-              <h2>
-                MXN 20.00
+                MXN 450.00
               </h2>
             </div>
             
@@ -158,14 +130,14 @@
 
     <div class="precio-datos">
       <h1>Precio</h1>
-      <h1 class="precio-total">$824MXN</h1>
+      <h1 class="precio-total">$450MXN</h1>
     </div>
     
     <div class="raya2"></div>
     
     <div class="total-datos">
       <h1>Total</h1>
-      <h1 class="precio-total">$824MXN</h1>
+      <h1 class="precio-total">$450MXN</h1>
     </div>
 
     <a href="{%url 'procesar-pago' %}" class="finalizar-compra">Confirmar compra</a>

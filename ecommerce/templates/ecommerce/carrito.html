@@ -33,8 +33,12 @@
         Carrito
       </h1>
       <div class="buscar-container">
-        <i class="fas fa-search lupa" style="color: white"></i>
-        <input type="text" class="buscar-barra" placeholder="Buscar">
+        <!-- <i class="fas fa-search lupa" style="color: white"></i> -->
+        <form method="post" action="{% url 'buscar_productos' %}">
+          {% csrf_token %}
+          <input type="text" name="q" placeholder="Buscar productos" class="buscar-barra">
+          <button type="submit">Buscar</button>
+        </form>
       </div>
 
       <ul class="clases-menu">
@@ -85,7 +89,63 @@
       <h2 class="carro-texto">Mi carrito</h2>
   </div>
 
-  <div class="productos-container">
+<!-- carrito.html -->
+<!-- ... Tu código anterior ... -->
+
+<div class="productos-container">
+  <div class="juegos-container">
+      <div class="juego-container">
+          <!-- Muestra la imagen del juego -->
+          {% if carrito %}
+              {% if carrito.0.juego.imagen %}
+                  <img src="{{ carrito.0.juego.imagen.url }}" alt="{{ carrito.0.juego.nombreJuego }}" class="juego-imagen">
+              {% else %}
+                  <!-- Lógica adicional o marcador de posición si no hay imagen -->
+              {% endif %}
+              <!-- Muestra el nombre del juego -->
+              <h2>{{ carrito.0.juego.nombreJuego }}</h2>
+              <!-- Muestra el precio del juego -->
+              <p>Precio: ${{ carrito.0.juego.precio }}</p>
+          {% else %}
+              <!-- Lógica adicional si el carrito está vacío -->
+          {% endif %}
+      </div>
+  </div>
+
+  <div class="total-container">
+    <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
+    
+
+    <div class="total-datos">
+      <h1>Precio</h1>
+      <h1 class="precio-total">$824MXN</h1>
+    </div>
+    <div class="total-datos">
+      <h1>Impuestos</h1>
+      <h1 class="imp"><span>Al finalizar la compra</span></h1>
+    </div>
+
+    <div class="raya">
+
+    </div>
+
+    <div class="total-datos">
+      <h1>Subtotal</h1>
+      <h1 class="subtotal">$824MXN</h1>
+    </div>
+
+    <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
+
+  </div>
+</div>
+
+
+
+
+<!-- ... Tu código posterior ... -->
+
+
+  <!-- <div class="productos-container">
     <div class="juegos-container">
 
       <div class="juego-container">
@@ -140,89 +200,9 @@
           </div>
         </div>
       </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
-
-      <div class="juego-container">
-
-        <div class="portada-videojuego">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
-
-          <div class="logo-windows">
-            <img src="{% static 'ecommerce/assets/silueta-del-logotipo-de-windows (1).png' %}" alt="Icono de windows">
-          </div>
-        </div>
-
-        <div class="precio-container">
-          <div class="primer-linea">
-            <p class="juego-base">Juego base</p>
-            <h2 class="precio-juego">374.99MXN</h2>
-          </div>
-
-          <div class="titulo-container">
-            <h1 class="titulo-juego">Rainbow Six Siege</h1>
-          </div>
-
-          <div class="clasificacion">
-            <div class="imagen">
-              <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
-            </div>
-
-            <div class="textos-container">
-              <div class="texto-clasificacion">
-                Mature
-              </div>
-              <div class="texto-clasifi">
-                <h3>Sangre, consumo de drogas, disparos, lenguaje soez.</h3>
-              </div>
-
-              <div class="estrellas-container">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-              </div>
-
-              <div class="botones-categoria">
-                <a href="#" class="boton-carrito">
-                    Añadir al carrito
-                </a>
-              </div>
-
-            </div>
-            
-          </div>
-        </div>
-      </div> <!-- AQUI CIERRA ESTA PORQUERIA, LUEGO TE CONFUNDES-->
  
     </div>
-
-    
-    <div class="total-container">
-      <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
-      
-
-      <div class="total-datos">
-        <h1>Precio</h1>
-        <h1 class="precio-total">$824MXN</h1>
-      </div>
-      <div class="total-datos">
-        <h1>Impuestos</h1>
-        <h1 class="imp"><span>Al finalizar la compra</span></h1>
-      </div>
-
-      <div class="raya">
-
-      </div>
-
-      <div class="total-datos">
-        <h1>Subtotal</h1>
-        <h1 class="subtotal">$824MXN</h1>
-      </div>
-
-      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
-
-    </div>
-  </div>
+  </div> 
 
 
 

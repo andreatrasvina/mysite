@@ -20,6 +20,12 @@ def lista_juegos(request):
     context = {'juegos': juegos}
     return render(request, 'ecommerce/lista_juegos.html', context)
 
+from django.shortcuts import render, get_object_or_404
+from .models import JuegosPublicados, ComprasRegistradas
+
+from django.shortcuts import render, get_object_or_404
+from .models import JuegosPublicados
+
 @login_required
 def detalle_juego(request, juego_id):
     juego = get_object_or_404(JuegosPublicados, pk=juego_id)
@@ -38,10 +44,26 @@ def detalle_juego(request, juego_id):
     return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito})
 
 
+def buscar_productos(request):
+    if request.method == 'POST':
+        query = request.POST.get('q', '')  # Obtén el texto de búsqueda del formulario POST
+
+        # Lógica para manejar la búsqueda basada en POST
+        resultados = JuegosPublicados.objects.filter(nombreJuego__icontains=query)
+
+
+        context = {'resultados': resultados, 'query': query}
+        return render(request, 'ecommerce/resul.html', context)
+
+    # Si llega una solicitud GET o cualquier otra, redirige a la vista de búsqueda
+    return redirect('buscar_productos')
+
+
 @login_required(login_url='/iniciar-sesion/')
 def get_carrito(request):
+    
     carrito = ComprasRegistradas.objects.filter(user=request.user)
-
+    print(carrito)
     return render(request, 'ecommerce/carrito.html', {'carrito': carrito})
 
     '''
@@ -198,3 +220,61 @@ def get_tienda(request):
     sliders = slidersPromocionales.objects.all()
     context = {'sliders': sliders}
     return render(request, 'ecommerce/tienda.html', context)
+
+
+# views.py
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import JuegosPublicados, ComprasRegistradas
+
+def agregar_al_carrito(request):
+    if request.method == 'POST':
+        juego_id = request.POST.get('juego_id')
+        juego = JuegosPublicados.objects.get(id=juego_id)
+        user = request.user
+        print(juego_id)
+        # Verifica si el juego ya está en el carrito del usuario
+        compra_existente = ComprasRegistradas.objects.filter(juego=juego, user=user).exists()
+
+        if not compra_existente:
+            # Crea una nueva compra en el carrito
+            ComprasRegistradas.objects.create(juego=juego, user=user)
+            messages.success(request, f'{juego.nombreJuego} se ha añadido al carrito.')
+        else:
+            messages.info(request, f'{juego.nombreJuego} ya está en tu carrito.')
+
+        return redirect('carrito')
+    else:
+        # Manejar otro caso si es necesario
+        pass
+
+
+# views.py
+from django.shortcuts import render
+from .models import ComprasRegistradas
+
+def carrito(request):
+    print("hola")
+    if request.user.is_authenticated:
+        # Obtén las compras del usuario autenticado
+        compras = ComprasRegistradas.objects.filter(user=request.user)
+        
+        return render(request, 'carrito.html', {'compras': compras})
+    else:
+        # Manejar el caso si el usuario no está autenticado
+        # Puedes redirigirlo a la página de inicio de sesión, por ejemplo
+        return render(request, 'carrito.html')  # Ajusta esto según tus necesidades
+
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import JuegosPublicados
+
+def juego(request, juego_id):
+    juego = JuegosPublicados.objects.get(id=juego_id)# Obtén el juego desde la base de datos
+    return render(request, 'ecommerce/juego.html', {'juego': juego})
+
+
+# def detalle_juego(request, juego_id):
+#     juego = JuegosPublicados.objects.get(pk=juego_id)# Obtén el juego desde la base de datos
+#     return render(request, 'ecommerce/juego.html', {'juego': juego})

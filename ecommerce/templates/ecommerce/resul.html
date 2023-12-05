@@ -31,8 +31,13 @@
         Búsqueda
       </h1>
       <div class="buscar-container">
-        <i class="fas fa-search lupa" style="color: white"></i>
-        <input type="text" class="buscar-barra" placeholder="Buscar">
+
+        <form method="post" action="{% url 'buscar_productos' %}">
+          {% csrf_token %}
+          <input type="text" name="q" placeholder="Buscar productos" class="buscar-barra">
+          <button type="submit">Buscar</button>
+        </form>
+
       </div>
 
       <ul class="clases-menu">
@@ -80,7 +85,12 @@
  
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
   <div class="texto-carro-container">
-      <h2 class="carro-texto">Resultados de la búsqueda</h2>
+      <h2 class="carro-texto">Resultados de búsqueda para "{{ query }}"</h2>
+      <ul>
+        {% for juego in resultados %}
+            <li>{{ juego.nombreJuego }}</li>
+        
+    </ul>
   </div>
 
   <div class="productos-container">
@@ -89,18 +99,22 @@
       <div class="juego-container">
 
         <div class="portada-videojuego">
-          <img src="{% static 'ecommerce/assets/r6-cover.png' %}" alt="portada videojuego" class="portada-img">
+          {% if juego.imagen %}
+          <img class="portada-img" src="{{ juego.imagen.url }}" alt="{{ juego.nombre }}" />
+          {% else %}
+          No hay imagen disponible. {% endif %}
         </div>
 
         <div class="precio-container">
           <div class="primer-linea">
-            <p class="juego-base">De los mas vendidos</p>
-            <h2 class="precio-juego">374.99MXN</h2>
+            <p class="juego-base">{{ juego.clasificacion }}</p>
+            <h2 class="precio-juego">${{ juego.precio }}MXN</h2>
           </div>
 
           <div class="titulo-container">
-            <h1 class="titulo-juego">Rainbow Six Siege</h1>
+            <h1 class="titulo-juego">{{ juego.nombreJuego }}</h1>
           </div>
+          {% endfor %}
 
           <div class="clasificacion">
 
@@ -122,16 +136,6 @@
  
     </div>
 
-    
-    <div class="filtro-container">
-      <h1 class="titulo-filtro">Filtro por orden alfabético</h1>
-      
-      <!-- <div class="raya">
-
-      </div> -->
-      <a href="#" class="finalizar-compra">FILTRAR</a>
-
-    </div>
   </div>
 
 

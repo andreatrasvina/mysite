@@ -3,6 +3,13 @@ from . import views
 from django.contrib.auth.views import LoginView
 from . import views
 
+# urls.py
+from django.urls import path
+from .views import juego, agregar_al_carrito, carrito
+
+from django.urls import path
+from .views import juego
+
 urlpatterns = [
     
     path('index/', views.get_index, name='index'),
@@ -21,5 +28,10 @@ urlpatterns = [
     path('procesar-pago/', views.get_procesar_pago, name='procesar-pago'),
     path('logout/', views.signout, name='logout'),
     path('lista_juegos', views.lista_juegos, name='lista_juegos'),
-    path('juego/<int:juego_id>/', views.detalle_juego, name='detalle_juego'),    
+    path('juego/<int:juego_id>/', views.detalle_juego, name='detalle_juego'),
+    path('buscar/', views.buscar_productos, name='buscar_productos'),
+
+    path('juego/<int:juego_id>/', juego, name='juego'),
+    path('agregar_al_carrito/', agregar_al_carrito, name='agregar_al_carrito'),
+    path('carrito/', carrito, name='carrito'),    
 ]

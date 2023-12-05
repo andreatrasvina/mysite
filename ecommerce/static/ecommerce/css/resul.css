@@ -45,6 +45,7 @@ body{
 .buscar-container {
     position: fixed;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     left: 330px;
     /* top: 1.8vh; */
@@ -102,7 +103,7 @@ nav{
     border-radius: 12px;
     color: white;
     padding-left: 30px; /* Ajusta el valor según sea necesario */
-    width: 300px; /* Ajusta el valor según sea necesario */
+    width: 200px; /* Ajusta el valor según sea necesario */
     height: 35px;
     border: none;
 }
