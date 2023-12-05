@@ -92,52 +92,52 @@
 <!-- carrito.html -->
 <!-- ... Tu código anterior ... -->
 
+
 <div class="productos-container">
   <div class="juegos-container">
-      <div class="juego-container">
-          <!-- Muestra la imagen del juego -->
-          {% if carrito %}
-              {% if carrito.0.juego.imagen %}
-                  <img src="{{ carrito.0.juego.imagen.url }}" alt="{{ carrito.0.juego.nombreJuego }}" class="juego-imagen">
+      {% for compra in carrito %}
+          <div class="juego-container">
+              <!-- Muestra la imagen del juego -->
+              {% if compra.juego.imagen %}
+                  <img src="{{ compra.juego.imagen.url }}" alt="{{ compra.juego.nombreJuego }}" class="juego-imagen">
               {% else %}
                   <!-- Lógica adicional o marcador de posición si no hay imagen -->
               {% endif %}
               <!-- Muestra el nombre del juego -->
-              <h2>{{ carrito.0.juego.nombreJuego }}</h2>
+              <h2>{{ compra.juego.nombreJuego }}</h2>
               <!-- Muestra el precio del juego -->
-              <p>Precio: ${{ carrito.0.juego.precio }}</p>
-          {% else %}
-              <!-- Lógica adicional si el carrito está vacío -->
-          {% endif %}
-      </div>
+              <p>Precio: ${{ compra.juego.precio }}</p>
+          </div>
+      {% endfor %}
   </div>
-
   <div class="total-container">
-    <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
-    
+      <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
 
-    <div class="total-datos">
-      <h1>Precio</h1>
-      <h1 class="precio-total">$824MXN</h1>
-    </div>
-    <div class="total-datos">
-      <h1>Impuestos</h1>
-      <h1 class="imp"><span>Al finalizar la compra</span></h1>
-    </div>
+      <div class="total-datos">
+          <h1>Precio</h1>
+          <!-- Utiliza la variable total_precio_carrito -->
+          <h1 class="precio-total">${{ total_precio_carrito|default:0 }}</h1>
+      </div>
+      <div class="total-datos">
+          <h1>Impuestos</h1>
+          <h1 class="imp"><span>Al finalizar la compra</span></h1>
+      </div>
 
-    <div class="raya">
+      <div class="raya">
 
-    </div>
+      </div>
 
-    <div class="total-datos">
-      <h1>Subtotal</h1>
-      <h1 class="subtotal">$824MXN</h1>
-    </div>
+      <div class="total-datos">
+          <h1>Subtotal</h1>
+          <!-- Utiliza la variable total_precio_carrito -->
+          <h1 class="subtotal">${{ total_precio_carrito|default:0 }}</h1>
+      </div>
 
-    <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
+      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
 
   </div>
 </div>
+
 
 
 

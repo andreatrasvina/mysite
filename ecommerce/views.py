@@ -25,6 +25,7 @@ from .models import JuegosPublicados, ComprasRegistradas
 
 from django.shortcuts import render, get_object_or_404
 from .models import JuegosPublicados
+from django.db.models import Sum
 
 @login_required
 def detalle_juego(request, juego_id):
@@ -33,15 +34,39 @@ def detalle_juego(request, juego_id):
     if request.method == 'POST':
         # Procesar la compra y agregar al carrito
         cantidad = int(request.POST.get('cantidad', 1))
-        user = request.user  # Obtener el usuario actualmente autenticado
+        user = request.user
         precio_total = juego.precio * cantidad
         ComprasRegistradas.objects.create(juego=juego, user=user, cantidad=cantidad, total=precio_total)
-        
+
         return redirect('carrito')
+
     # Obtener todas las compras en el carrito para el usuario actual
     carrito = ComprasRegistradas.objects.filter(user=request.user)
 
-    return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito})
+    # Calcular la suma de los precios de los juegos en el carrito
+    total_precio_carrito = carrito.aggregate(Sum('juego__precio'))['juego__precio__sum']
+
+    return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito, 'total_precio_carrito': total_precio_carrito})
+
+    
+
+
+
+# def detalle_juego(request, juego_id):
+#     juego = get_object_or_404(JuegosPublicados, pk=juego_id)
+
+#     if request.method == 'POST':
+#         # Procesar la compra y agregar al carrito
+#         cantidad = int(request.POST.get('cantidad', 1))
+#         user = request.user  # Obtener el usuario actualmente autenticado
+#         precio_total = juego.precio * cantidad
+#         ComprasRegistradas.objects.create(juego=juego, user=user, cantidad=cantidad, total=precio_total)
+        
+#         return redirect('carrito')
+#     # Obtener todas las compras en el carrito para el usuario actual
+#     carrito = ComprasRegistradas.objects.filter(user=request.user)
+
+#     return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito})
 
 
 def buscar_productos(request):
