@@ -18,7 +18,7 @@
 
   <link rel="icon" href="{% static 'ecommerce/assets/rueda-de-color.png' %}" type="image/svg+xml">
   <link rel="shortcut icon" href="{% static 'ecommerce/assets/logo.png' %}" type="image/x-icon" >
-  <link rel="stylesheet" href="{% static 'ecommerce/css/carrito.css' %}">
+  <link rel="stylesheet" href="{% static 'ecommerce/css/historial.css' %}">
   <title>LevelUp Access</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
         <a href="{%url 'index' %}">
           <img class = "logo" src="{% static 'ecommerce/assets/logo.png' %}" alt="LevelUp Access logo">
         </a>
-        Carrito
+        Historial
       </h1>
       <div class="buscar-container">
         <!-- <i class="fas fa-search lupa" style="color: white"></i> -->
@@ -52,7 +52,7 @@
         {% block content %}
         {% if user.is_authenticated %}
         <ul class="iconos-menu">   
-          <li class="icono-corazon"><a href="{%url 'historial' %}"><i class="fas fa-book"></i></a></li>
+          <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
           <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
         </ul>
    
@@ -86,7 +86,7 @@
  
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
   <div class="texto-carro-container">
-      <h2 class="carro-texto">Mi carrito</h2>
+      <h2 class="carro-texto">Historial de mis compras</h2>
   </div>
 
 <!-- carrito.html -->
@@ -142,11 +142,9 @@
                       
                     </div>
                     
-                    <form method="post" action="{% url 'eliminar_del_carrito' compra.id %}">
-                      {% csrf_token %}
-                      <button type="submit" class="boton-eliminar">
-                          Eliminar
-                      </button>
+                    <a href="{%url 'carrito' %}" class="boton-eliminar">
+                        Elimlinar
+                    </a>
                   </div>
                   
                 </div>
@@ -155,31 +153,13 @@
       {% endfor %}
   </div>
   <div class="total-container">
-      <h1 class="titulo-total">Resumen de juegos y aplicaciones</h1>
+      <h1 class="titulo-total">Filtrar:</h1>
 
-      <div class="total-datos">
-          <h1>Precio</h1>
-          <!-- Utiliza la variable total_precio_carrito -->
-          <!-- <h1 class="precio-total">${{ total_precio_carrito|default:0 }}</h1> -->
-          <h1 class="precio-total">$650</h1>
-      </div>
-      <div class="total-datos">
-          <h1>Impuestos</h1>
-          <h1 class="imp"><span>Al finalizar la compra</span></h1>
-      </div>
+      <!-- <div class="raya">
 
-      <div class="raya">
+      </div> -->
 
-      </div>
-
-      <div class="total-datos">
-          <h1>Subtotal</h1>
-          <!-- Utiliza la variable total_precio_carrito -->
-          <!-- <h1 class="subtotal">${{ total_precio_carrito|default:0 }}</h1> -->
-          <h1 class="subtotal">$650</h1>
-      </div>
-
-      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>
+      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">POR FECHA</a>
 
   </div>
 </div>

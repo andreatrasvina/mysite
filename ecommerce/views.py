@@ -49,24 +49,8 @@ def detalle_juego(request, juego_id):
     return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito, 'total_precio_carrito': total_precio_carrito})
 
     
+# AQUI 
 
-
-
-# def detalle_juego(request, juego_id):
-#     juego = get_object_or_404(JuegosPublicados, pk=juego_id)
-
-#     if request.method == 'POST':
-#         # Procesar la compra y agregar al carrito
-#         cantidad = int(request.POST.get('cantidad', 1))
-#         user = request.user  # Obtener el usuario actualmente autenticado
-#         precio_total = juego.precio * cantidad
-#         ComprasRegistradas.objects.create(juego=juego, user=user, cantidad=cantidad, total=precio_total)
-        
-#         return redirect('carrito')
-#     # Obtener todas las compras en el carrito para el usuario actual
-#     carrito = ComprasRegistradas.objects.filter(user=request.user)
-
-#     return render(request, 'ecommerce/juego.html', {'juego': juego, 'carrito': carrito})
 
 
 def buscar_productos(request):
@@ -91,16 +75,6 @@ def get_carrito(request):
     print(carrito)
     return render(request, 'ecommerce/carrito.html', {'carrito': carrito})
 
-    '''
-    def detalle_juego(request, juego_id):
-    juego = JuegosPublicados.objects.get(pk=juego_id)# Obtén el juego desde la base de datos
-    return render(request, 'ecommerce/juego.html', {'juego': juego})# Renderiza la plantilla con los datos del juego
-
-    ///
-    context={}
-    template_name = 'ecommerce/carrito.html'
-    return render(request, template_name, context)
-    '''
 
 def get_categorias(request):
     juegos = JuegosPublicados.objects.all()
@@ -151,6 +125,11 @@ def get_categoria(request):
 def get_resul(request):
     context={}
     template_name = 'ecommerce/resul.html'
+    return render(request, template_name, context)
+
+def get_historial(request):
+    context={}
+    template_name = 'ecommerce/historial.html'
     return render(request, template_name, context)
 
 @login_required(login_url='/iniciar-sesion/')
@@ -299,6 +278,15 @@ def juego(request, juego_id):
     juego = JuegosPublicados.objects.get(id=juego_id)# Obtén el juego desde la base de datos
     return render(request, 'ecommerce/juego.html', {'juego': juego})
 
+
+def eliminar_del_carrito(request, compra_id):
+    compra = get_object_or_404(ComprasRegistradas, id=compra_id)
+
+    # Verifica si la compra pertenece al usuario actual antes de eliminarla
+    if compra.user == request.user:
+        compra.delete()
+
+    return redirect('carrito')
 
 # def detalle_juego(request, juego_id):
 #     juego = JuegosPublicados.objects.get(pk=juego_id)# Obtén el juego desde la base de datos

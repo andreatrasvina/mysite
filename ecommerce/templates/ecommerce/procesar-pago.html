@@ -50,7 +50,7 @@
         {% block content %}
         {% if user.is_authenticated %}
         <ul class="iconos-menu">   
-          <li class="icono-corazon"><a href="#"><i class="fas fa-book"></i></a></li>
+          <li class="icono-corazon"><a href="{%url 'historial' %}"><i class="fas fa-book"></i></a></li>
           <li class="icono-carrito"><a href="{%url 'carrito' %}"><i class="fas fa-shopping-cart"></i></a></li>
         </ul>
    
@@ -77,7 +77,7 @@
   <div class="texto-metodo-container">
       <h2 class="metodo-texto">MUCHAS GRACIAS POR COMPRAR!</h2>
 
-      <a href="{%url 'carrito' %}" class="boton-eliminar">
+      <a href="{%url 'historial' %}" class="boton-eliminar">
         Ver mi historial de compras
       </a>
 
