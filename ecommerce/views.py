@@ -53,6 +53,8 @@ def detalle_juego(request, juego_id):
 
 
 
+
+
 def buscar_productos(request):
     if request.method == 'POST':
         query = request.POST.get('q', '')  # Obtén el texto de búsqueda del formulario POST
@@ -127,10 +129,27 @@ def get_resul(request):
     template_name = 'ecommerce/resul.html'
     return render(request, template_name, context)
 
+
+
+@login_required(login_url='/iniciar-sesion/')
 def get_historial(request):
-    context={}
-    template_name = 'ecommerce/historial.html'
-    return render(request, template_name, context)
+    # Verificar si se está enviando un parámetro de orden
+    orden = request.GET.get('orden', '-fecha_compra')
+
+    # Filtrar las compras del usuario
+    compras = ComprasRegistradas.objects.filter(user=request.user)
+
+    # Ordenar las compras según el parámetro de orden
+    compras = compras.order_by(orden)
+
+    # Calcular el total de precios en el historial
+    total_precio_historial = compras.aggregate(Sum('juego__precio'))['juego__precio__sum']
+
+    # Renderizar la plantilla con las compras ordenadas y el total de precios
+    return render(request, 'ecommerce/historial.html', {'compras': compras, 'total_precio_historial': total_precio_historial})
+
+
+
 
 @login_required(login_url='/iniciar-sesion/')
 def get_procesar_pago(request):
@@ -231,6 +250,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import JuegosPublicados, ComprasRegistradas
 
+
 def agregar_al_carrito(request):
     if request.method == 'POST':
         juego_id = request.POST.get('juego_id')
@@ -248,9 +268,7 @@ def agregar_al_carrito(request):
             messages.info(request, f'{juego.nombreJuego} ya está en tu carrito.')
 
         return redirect('carrito')
-    else:
-        # Manejar otro caso si es necesario
-        pass
+    
 
 
 # views.py

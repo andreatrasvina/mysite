@@ -26,6 +26,7 @@ urlpatterns = [
     path('views/', include('ecommerce.urls')),
     path('index/', include('ecommerce.urls')),
     path('', include('ecommerce.urls')),
+    path('tienda/', include('ecommerce.urls')),
     
 ]
 

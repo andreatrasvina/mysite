@@ -34,6 +34,8 @@
       </h1>
       <div class="buscar-container">
         <!-- <i class="fas fa-search lupa" style="color: white"></i> -->
+
+
         <form method="post" action="{% url 'buscar_productos' %}">
           {% csrf_token %}
           <input type="text" name="q" placeholder="Buscar productos" class="buscar-barra">
@@ -92,10 +94,10 @@
 <!-- carrito.html -->
 <!-- ... Tu código anterior ... -->
 
-
+{% block content1 %}
 <div class="productos-container">
   <div class="juegos-container">
-      {% for compra in carrito %}
+    {% for compra in compras %}
           <div class="juego-container">
               <!-- Muestra la imagen del juego -->
               {% if compra.juego.imagen %}
@@ -108,11 +110,6 @@
 
 
               <div class="precio-container">
-                <div class="primer-linea">
-                  <p class="juego-base">Juego base</p>
-                  <!-- <h2 class="precio-juego">374.99MXN</h2> -->
-                  <h2 class="precio-juego">Precio: ${{ compra.juego.precio }}</h2>
-                </div>
 
                 <!-- Muestra el nombre del juego -->
                 <div class="titulo-container">
@@ -121,30 +118,15 @@
                 </div>
       
                 <div class="clasificacion">
-                  <div class="imagen">
-                    <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
-                  </div>
-      
+          
                   <div class="textos-container">
                     <div class="texto-clasificacion">
-                      Mature
-                    </div>
-                    <div class="texto-clasifi">
-                      <h3>Sangre, consumo de drogas, disparos, lenguaje soez.</h3>
-                    </div>
-      
-                    <div class="estrellas-container">
-                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
-                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
                       
+                      <p>Fecha de compra: {{ compra.fecha_compra }}</p>
                     </div>
                     
-                    <a href="{%url 'carrito' %}" class="boton-eliminar">
-                        Elimlinar
-                    </a>
+    
+                    
                   </div>
                   
                 </div>
@@ -159,10 +141,20 @@
 
       </div> -->
 
-      <a href="{%url 'procesar-pago' %}" class="finalizar-compra">POR FECHA</a>
+      <form method="get" action="{% url 'historial' %}">
+        <label for="orden">Ordenar por fecha:</label>
+        <select name="orden" id="orden">
+            <option value="-fecha_compra">Más reciente a más antigua</option>
+            <option value="fecha_compra">Más antigua a más reciente</option>
+        </select>
+        <button type="submit">Ordenar</button>
+      </form>
+
+      <p>URL: {% url 'historial' %}</p>
 
   </div>
 </div>
+{% endblock %}
 
 
 
