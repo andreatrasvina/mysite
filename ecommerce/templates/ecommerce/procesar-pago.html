@@ -76,6 +76,11 @@
   <!-- ESTE ES EL ESPACIO PARA LOS PRODUCTOS  -->
   <div class="texto-metodo-container">
       <h2 class="metodo-texto">MUCHAS GRACIAS POR COMPRAR!</h2>
+
+      <a href="{%url 'carrito' %}" class="boton-eliminar">
+        Ver mi historial de compras
+      </a>
+
   </div>
   
 </div>
@@ -117,7 +122,7 @@
 
     <div class="ayuda">
       <a href="#">
-        <img src="../assets/paleta.png" alt="Icono de ayuda">
+        <img src="{% static 'ecommerce/assets/paleta.png' %}" alt="Icono de ayuda">
       </a>
     </div>
 

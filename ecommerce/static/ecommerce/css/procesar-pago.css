@@ -1042,3 +1042,17 @@ nav{
     margin: 0 auto;
 
 }
+
+.boton-eliminar{
+    position: relative;
+    display: block;
+    top: 2vh;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: #036EEC;
+    padding: 15px 0;
+    border-radius: 10px;
+    font-size: 0.8vw;
+}
