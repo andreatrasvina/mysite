@@ -99,14 +99,57 @@
           <div class="juego-container">
               <!-- Muestra la imagen del juego -->
               {% if compra.juego.imagen %}
-                  <img src="{{ compra.juego.imagen.url }}" alt="{{ compra.juego.nombreJuego }}" class="juego-imagen">
+              <div class="portada-videojuego">
+                <img src="{{ compra.juego.imagen.url }}" alt="{{ compra.juego.nombreJuego }}" class="portada-img">
+              </div>
               {% else %}
                   <!-- Lógica adicional o marcador de posición si no hay imagen -->
               {% endif %}
-              <!-- Muestra el nombre del juego -->
-              <h2>{{ compra.juego.nombreJuego }}</h2>
-              <!-- Muestra el precio del juego -->
-              <p>Precio: ${{ compra.juego.precio }}</p>
+
+
+              <div class="precio-container">
+                <div class="primer-linea">
+                  <p class="juego-base">Juego base</p>
+                  <!-- <h2 class="precio-juego">374.99MXN</h2> -->
+                  <h2 class="precio-juego">Precio: ${{ compra.juego.precio }}</h2>
+                </div>
+
+                <!-- Muestra el nombre del juego -->
+                <div class="titulo-container">
+                 <!-- <h1 class="titulo-juego">Rainbow Six Siege</h1> -->
+                  <h2>{{ compra.juego.nombreJuego }}</h2>
+                </div>
+      
+                <div class="clasificacion">
+                  <div class="imagen">
+                    <img src="{% static 'ecommerce/assets/download.png' %}" alt="">
+                  </div>
+      
+                  <div class="textos-container">
+                    <div class="texto-clasificacion">
+                      Mature
+                    </div>
+                    <div class="texto-clasifi">
+                      <h3>Sangre, consumo de drogas, disparos, lenguaje soez.</h3>
+                    </div>
+      
+                    <div class="estrellas-container">
+                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+                      <img src="{% static 'ecommerce/assets/estrella(3).png' %}" alt="">
+  
+                    </div>
+
+                    <div class="elminiar-boton">
+
+                    </div>
+      
+                  </div>
+                  
+                </div>
+              </div>                        
           </div>
       {% endfor %}
   </div>
@@ -116,7 +159,8 @@
       <div class="total-datos">
           <h1>Precio</h1>
           <!-- Utiliza la variable total_precio_carrito -->
-          <h1 class="precio-total">${{ total_precio_carrito|default:0 }}</h1>
+          <!-- <h1 class="precio-total">${{ total_precio_carrito|default:0 }}</h1> -->
+          <h1 class="precio-total">$650</h1>
       </div>
       <div class="total-datos">
           <h1>Impuestos</h1>
@@ -130,7 +174,8 @@
       <div class="total-datos">
           <h1>Subtotal</h1>
           <!-- Utiliza la variable total_precio_carrito -->
-          <h1 class="subtotal">${{ total_precio_carrito|default:0 }}</h1>
+          <!-- <h1 class="subtotal">${{ total_precio_carrito|default:0 }}</h1> -->
+          <h1 class="subtotal">$650</h1>
       </div>
 
       <a href="{%url 'procesar-pago' %}" class="finalizar-compra">FINALIZAR COMPRA</a>

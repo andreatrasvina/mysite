@@ -253,13 +253,13 @@ nav{
 /* TEXTO DE ARRIBA, AQUI NO VENGAS A LEER NADA */
 .texto-metodo-container {
     position: relative;
-    top: 10vh;
+    top: 30vh;
     color: white;
     /* background-color: #6D6D6D; */
     margin-bottom: 12vh; 
     margin-left: auto;
     margin-right: auto;
-    width: 60%;   
+    width: 50%;  
 }
 
 .metodo-texto {
@@ -1036,4 +1036,9 @@ nav{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.60); /* Cambia la opacidad aquí según tus preferencias */
     z-index: 1; /* Asegura que la capa esté por encima de las imágenes */
+}
+
+.texto-metodo-container{
+    margin: 0 auto;
+
 }

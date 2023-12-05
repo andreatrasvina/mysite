@@ -251,6 +251,8 @@ nav{
 
 /*CARRITO*/
 
+/*CARRITO*/
+
 .productos-container {
     position: relative;
     display: flex;
@@ -320,7 +322,7 @@ nav{
     position: relative;
     top: 7%;
     left: 0.5vw;
-    width: 180px;
+    max-width: 180px;
     height: 70%;
     border-radius: 10px;
 }
@@ -411,25 +413,6 @@ nav{
     margin-left: 1vw;
 }
 
-.botones-categoria{
-    position: relative;
-    top: 5vh;
-    margin: 0;
-    right: 5vw;
-    /* display: inline */
-}
-
-.boton-carrito{
-    /* position: relative; */
-    font-size: 0.6vw;
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    border: 2px solid #D6D6D6;
-    background: #202020;
-    padding: 10px 14px 10px 14px;
-}
-
 .texto-clasificacion{
     font-size: 1vw;
     font-weight: 500;
@@ -439,15 +422,11 @@ nav{
 .texto-clasifi{
     position: relative;
     color: #6D6D6D;
+    font-family: Raleway;
     font-size: 14px;
     font-style: normal;
     line-height: normal;
     bottom: 14px;
-    /* background-color: #036EEC; */
-}
-
-.texto-clasifi h3{
-    font-family: 'Raleway', sans-serif;
 }
 
 .estrellas-container{
